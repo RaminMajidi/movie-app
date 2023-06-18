@@ -21,6 +21,7 @@ const ImgLoader = ({ src, style, alt = '', width = 1000, height = 1000 }) => {
                 src={src}
                 width={width}
                 height={height}
+                priority={true}
                 alt={alt} />
         </div>
     )

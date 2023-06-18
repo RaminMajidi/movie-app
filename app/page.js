@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <>
-    <HomeSlider key={"test"} data={data} title={"Now Playing"}/>
+    <HomeSlider key={"test"} data={data}/>
     </>
   )
 }
