@@ -30,7 +30,7 @@ const HomeSlider = (props) => {
                             {data.map((item, index) => {
                                 if (index < active + 2 && index > active - 2) {
                                     return (
-                                        <div key={index} onClick={() => sliderHandeler(+index)} className={`transition-all mx-2 ${active === index ? " w-36 h-[100%] shadow-lg " : " w-24 h-[80%] "}`}>
+                                        <div title={item.title} key={index} onClick={() => sliderHandeler(+index)} className={` transition-all mx-2 ${active === index ? " w-36 h-[100%] shadow-lg " : " w-24 h-[80%] cursor-pointer"}`}>
                                             <ImgLoader src={item.poster_path} style={'rounded-xl'} alt={item.title} />
                                         </div>
                                     )
