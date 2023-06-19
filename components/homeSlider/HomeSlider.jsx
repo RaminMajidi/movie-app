@@ -21,10 +21,10 @@ const HomeSlider = (props) => {
                 data ? (
                     <div className="relative w-full h-[88vh]">
                         <ImgLoader src={cover} style={"rounded-xl transition-all"} alt="Bg-slider" />
-                        <div className="absolute top-2 left-2">
-                            <h3 className="bg-gray-600 mt-2 px-3 py-2 w-[260px] md:w-max truncate rounded-lg text-xs md:text-base">Title : <span>{data[active].title}</span></h3>
-                            <h3 className="bg-gray-600 mt-2 px-3 py-2 w-max rounded-lg text-xs md:text-base">Score : <span>{data[active].vote_average}</span></h3>
-                            <button className="bg-blue-500 mt-2 px-3 py-2 w-max rounded-lg text-xs md:text-base" onClick={() => { router.push(`/movies/${data[active].id}`) }}>Reade More</button>
+                        <div className="absolute top-2 left-2 text-slate-200">
+                            <h3 className="bg-[var(--c-black)] mt-2 px-3 py-2 w-[260px] md:w-max truncate rounded-lg text-xs md:text-base">Title : <span>{data[active].title}</span></h3>
+                            <h3 className="bg-[var(--c-black)] mt-2 px-3 py-2 w-max rounded-lg text-xs md:text-base">Score : <span>{data[active].vote_average}</span></h3>
+                            <button className="bg-[var(--c-primary)] mt-2 px-3 py-2 w-max rounded-lg text-xs md:text-base" onClick={() => { router.push(`/movies/${data[active].id}`) }}>Reade More</button>
                         </div>
                         <div className="absolute overflow-hidden bottom-2 w-full h-[45vh] flex justify-start items-center " >
                             {data.map((item, index) => {
