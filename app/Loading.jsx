@@ -1,7 +1,13 @@
 
-const Loading = () =>{
-    return(
-        <h1 className="text-red-500">Loading...</h1>
+const Loading = () => {
+    return (
+        <div className="Loading-container">
+            <h2>Loading...</h2>
+            <div className="bar">
+                <div className="ball"></div>
+            </div>
+        </div>
     )
 }
+
 export default Loading

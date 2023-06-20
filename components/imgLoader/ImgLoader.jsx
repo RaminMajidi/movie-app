@@ -8,10 +8,13 @@ const ImgLoader = ({ src, style, alt = '', width = 1000, height = 1000 }) => {
     const [imgLoading, setImgLoading] = useState(true)
 
     return (
-        <div key={alt+"_img"} className={`w-full h-full relative ${style}`}>
-            <span className={`${imgLoading ? "inline-block" : "hidden"} rounded-md  absolute w-full h-full transition-all duration-500 ease-in-out   bg-gradient-to-r from-[#494949] to-[#5eb1ff] animate-pulse `}></span>
+        <div key={alt + "_img"} className={`w-full h-full relative transition-all  ${style}`}>
+            <span className={`${imgLoading ? "inline-block" : "hidden"} 
+             rounded-md  absolute w-full h-full transition-all duration-500 ease-in-out 
+               bg-gradient-to-r from-[#494949] to-[#5eb1ff] animate-pulse `}>
+            </span>
             <Image
-            key={"img"+alt}
+                key={"img" + alt}
                 className={`w-full h-full opacity-0 ${style} `}
                 loader={imageLoader}
                 onLoadingComplete={(image) => {
