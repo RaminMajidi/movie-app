@@ -3,13 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --c-bg:#01051e;
-  --c-black:#020726;
-  --c-gray:#333;
-  --c-primary:#a427df;
-  --c-orange:#ff7d3b;
+  --c-bg:#101014;
+  --c-black:#1c1c22;
+  --c-white:#f5f5f5;
+  --c-gray:#bbc1c6;
+  --c-lgray:#cbcfd3;
+  --c-blue:#1e70ff;
+  --c-lblue:#7aa6ff;
+  --c-primary:#ce58dd;
+  --c-green:#59d64f;
+  --c-orange:#ffc107;
 }
 
 body {
   background-color: var(--c-bg);
+  color: var(--c-white);
 }
