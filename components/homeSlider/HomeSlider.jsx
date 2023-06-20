@@ -4,7 +4,7 @@ import ImgLoader from "../imgLoader/ImgLoader"
 import { useRouter } from "next/navigation"
 
 
-const HomeSlider = (props) => {
+const HomeSlider = async (props) => {
     const router = useRouter();
     const [data, setData] = useState(props.data?.results)
     const [active, setActive] = useState(0)
@@ -19,30 +19,30 @@ const HomeSlider = (props) => {
         <>
             {
                 data ? (
-                    <div className="relative w-full h-[88vh]">
+                    <div className="relative w-full h-[90vh] mb-3 ">
                         <ImgLoader
                             src={cover}
                             style={`rounded-xl transition-all`}
                             alt="Bg-slider" />
-                        <div className="absolute top-2 left-2 text-[var(--c-black)]">
-                            <h3 className="bg-[var(--c-gray)] mt-2 px-3 py-2 
-                             w-[260px] md:w-max truncate rounded-lg text-xs 
-                              font-semibold min-w-[125px] md:text-base">
+                        <div className="absolute w-[98%] top-2 left-2 text-[var(--c-black)]">
+                            <h3 className="bg-[var(--c-gray)] mt-2 px-3 py-2
+                               truncate rounded-lg text-xs w-fit max-w-[93%] 
+                              font-semibold md:min-w-[125px] md:text-base">
                                 Title :
                                 <span>
                                     {data[active].title}
                                 </span>
                             </h3>
                             <h3 className="bg-[var(--c-gray)] mt-2 px-3 py-2 w-max 
-                             rounded-lg text-xs font-semibold min-w-[125px] md:text-base">
+                             rounded-lg text-xs font-semibold md:min-w-[125px] md:text-base">
                                 Score :
                                 <span>
                                     {data[active].vote_average}
                                 </span>
                             </h3>
                             <button className="bg-[var(--c-orange)]
-                             mt-2 px-3 py-2 w-max rounded-lg text-xs
-                             font-semibold min-w-[125px] md:text-base"
+                             mt-2 p-2 w-max rounded-lg text-xs
+                             font-semibold md:min-w-[125px] md:text-base"
                                 onClick={() => {
                                     router.push(`/movies/${data[active].id}`)
                                 }}>
@@ -57,8 +57,8 @@ const HomeSlider = (props) => {
                                         key={index}
                                         onClick={() => sliderHandeler(+index)}
                                         className={` transition-all mx-2
-                                          ${active === index ? " w-36 h-[100%] shadow-lg " :
-                                                " w-[10%] h-[80%] cursor-pointer"}
+                                          ${active === index ? " w-40 h-[100%] shadow-lg " :
+                                                " w-32 h-[80%] cursor-pointer"}
                                             ${index > (active + 1) ? 'hidden' :
                                                 index < (active - 1) ? 'hidden' :
                                                     'inline-block'} `
