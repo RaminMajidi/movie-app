@@ -1,5 +1,6 @@
 import { getData } from "@/service/HeaderQuery";
 import ImgLoader from "@/components/imgLoader/ImgLoader";
+import BtnBack from "@/components/btnBack/BtnBack";
 
 const Movie = async ({ params }) => {
     const { movie } = params
@@ -23,17 +24,18 @@ const Movie = async ({ params }) => {
                     <h2 className="my-3 mr-4 text-sm  md:text-lg"><span className="text-[var(--c-lblue)]">HomePage : </span><a title={data.title} className="text-[var(--c-blue)]  hover:text-[var(--c-orange)] transition-all duration-500" href={data.homepage} target="_blank">Viewing</a></h2>
                     <h2 className="my-3 mr-4 text-sm  md:text-lg"><span className="text-[var(--c-lblue)]">Status : </span><span className="bg-[var(--c-green)] text-xs font-semibold tracking-wider text-[var(--c-black)] p-1 rounded-md">{data.status}</span></h2>
                 </div>
-                <h2 className="my-1 text-sm  md:text-lg flex flex-wrap justify-start items-center"><span className="text-[var(--c-lblue)]">Genres : </span>
+                <h2 className=" my-1 text-sm  md:text-lg flex flex-wrap justify-start items-center"><span className="text-[var(--c-lblue)]">Genres : </span>
                     {
                         data.genres.map((item, i) => {
                             if (i < 3) {
                                 return (
-                                    <span key={"genre_" + i} className="bg-[var(--c-orange)] text-[var(--c-black)]  tracking-widest font-semibold text-xs mx-1 my-4  px-2 py-1 rounded-md">{item.name}</span>
+                                    <span key={"genre_" + i} className="bg-[var(--c-orange)]  text-[var(--c-black)]  tracking-widest font-semibold text-xs mx-1 my-4  px-2 py-1 rounded-md">{item.name}</span>
                                 )
                             }
                         })
                     }
                 </h2>
+                <BtnBack style={'px-6 rounded-md my-3 py-1 bg-[var(--c-lblue)] hover:bg-[var(--c-blue)] transition-all'}/>
             </div>
         </div>
     )

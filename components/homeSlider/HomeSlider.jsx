@@ -4,7 +4,7 @@ import ImgLoader from "../imgLoader/ImgLoader"
 import { useRouter } from "next/navigation"
 
 
-const HomeSlider = async (props) => {
+const HomeSlider =  (props) => {
     const router = useRouter();
     const [data, setData] =  useState(props.data?.results)
     const [active, setActive] = useState(0)
