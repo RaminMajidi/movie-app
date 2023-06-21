@@ -8,10 +8,12 @@ export const option = {
 }
 
 export const getData = async (url)=>{
-  const res = await  fetch(`https://api.themoviedb.org/${url}`,option);
+  const res = await  fetch(`${url}`,option);
   if(res.status === 200){
    const data = await res.json();
    return data
+  }else{
+     throw new Error("Error !")
   }
   
 }

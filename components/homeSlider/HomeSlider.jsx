@@ -6,22 +6,20 @@ import { useRouter } from "next/navigation"
 
 const HomeSlider = async (props) => {
     const router = useRouter();
-    const [data, setData] = useState(props.data?.results)
+    const [data, setData] =  useState(props.data?.results)
     const [active, setActive] = useState(0)
-    const [cover, setCover] = useState(data ? data[0]?.backdrop_path : '')
 
     const sliderHandeler = (i) => {
         setActive(i)
-        setCover(data[i].backdrop_path)
     }
 
     return (
         <>
             {
                 data ? (
-                    <div className="relative w-full h-[90vh] mb-3 ">
+                    <div className="relative w-full h-[88vh] mb-3 ">
                         <ImgLoader
-                            src={cover}
+                            src={data[active].backdrop_path}
                             style={`rounded-xl transition-all`}
                             alt="Bg-slider" />
                         <div className="absolute w-[98%] top-2 left-2 text-[var(--c-black)]">

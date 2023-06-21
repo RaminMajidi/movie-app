@@ -3,7 +3,7 @@ import ImgLoader from "@/components/imgLoader/ImgLoader";
 
 const Movie = async ({ params }) => {
     const { movie } = params
-    const data = await getData(`/3/movie/${movie}`);
+    const data = await getData(`https://api.themoviedb.org/3/movie/${movie}`);
     return (
         <div className="grid grid-cols-12 gap-6 mb-4">
             <div className=" col-start-2 col-span-10  sm:col-span-4 md:col-span-3 lg:col-span-4 ">

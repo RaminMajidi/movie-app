@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image"
 import { useState } from "react"
-const ImgLoader = ({ src, style, alt = '', width = 1000, height = 1000 }) => {
+const ImgLoader = ({ src, style, alt = '', width = 500, height = 500 }) => {
     const imageLoader = ({ src }) => {
         return `https://image.tmdb.org/t/p/original${src}`
     }
@@ -15,6 +15,7 @@ const ImgLoader = ({ src, style, alt = '', width = 1000, height = 1000 }) => {
             </span>
             <Image
                 key={"img" + alt}
+                quality={50}
                 className={`w-full h-full opacity-0 ${style} `}
                 loader={imageLoader}
                 onLoadingComplete={(image) => {
