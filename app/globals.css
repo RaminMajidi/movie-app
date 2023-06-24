@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+  font-family: '__Poppins_Fallback_4467c8';
+}
 :root {
   --c-bg: #101014;
   --c-black: #1c1c22;

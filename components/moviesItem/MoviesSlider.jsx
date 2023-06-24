@@ -54,7 +54,6 @@ const MoviesSlider = async ({ data, title }) => {
                                                         key={item.title}
                                                         alt={item.title}
                                                         src={item.poster_path}
-                                                        style={''}
                                                     />
                                                     <div className="rounded-xl absolute z-10
                                                      bg-[var(--c-gray)] flex flex-col

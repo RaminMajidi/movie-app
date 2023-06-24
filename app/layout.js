@@ -1,9 +1,13 @@
+'use client'
 import './globals.css'
-import { Poppins } from 'next/font/google'
-
+import { Montserrat } from 'next/font/google'
 import Header from '@/components/header/Header'
 
-const poppins = Poppins({ subsets: ['latin'] ,weight:['200','400','800']})
+const montserrat = Montserrat({
+   subsets: ['latin'] ,
+   weight:['200','400','700'],
+   variable:'--font-montserrat'
+  })
 
 export const metadata = {
   title: 'Movie App',
@@ -14,7 +18,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${montserrat.className}`}>
         <Header/>
         <main className='mt-16 mx-auto px-2 max-w-7xl'>
         {children}
