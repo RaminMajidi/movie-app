@@ -55,10 +55,40 @@ const Header = () => {
                     </ul>
                 </div>
 
-                <div>
-                    <Link href={'/tv'} className="mx-2 hover:text-[var(--c-orange)]  transition-all duration-700">
+                <div className="relative group">
+                    <button type="button"
+                        className="group mx-2 hover:text-[var(--c-orange)] 
+                      transition-all duration-700">
                         <span>Tv's</span>
-                    </Link>
+                    </button>
+                    <ul className="group rounded-lg absolute hidden
+                     group-hover:block  text-center -left-10 top-6 
+                     w-36 bg-[var(--c-orange)] text-[var(--c-black)]">
+
+                        <Link href={`/tv/airingToday`}>
+                            <li className="p-1 hover:bg-[var(--c-black)]
+                         hover:text-[var(--c-orange)] transition-all
+                          cursor-pointer rounded-t-lg">Airing Today</li>
+                        </Link>
+
+                        <Link href={`/tv/onTheAir`}>
+                            <li className="p-1 hover:bg-[var(--c-black)]
+                         hover:text-[var(--c-orange)] transition-all
+                          cursor-pointer">On The Air</li>
+                        </Link>
+
+                        <Link href={`/tv/popular`}>
+                            <li className="p-1 hover:bg-[var(--c-black)]
+                         hover:text-[var(--c-orange)] transition-all
+                          cursor-pointer">Popular</li>
+                        </Link>
+
+                        <Link href={`/tv/topRated`}>
+                            <li className="p-1 hover:bg-[var(--c-black)]
+                         hover:text-[var(--c-orange)] transition-all
+                          cursor-pointer rounded-b-lg">Top Rated</li>
+                        </Link>
+                    </ul>
                 </div>
 
                 <div>

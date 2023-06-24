@@ -1,12 +1,12 @@
 'use client'
 import './globals.css'
-import { Montserrat } from 'next/font/google'
+import {Roboto_Condensed } from 'next/font/google'
 import Header from '@/components/header/Header'
 
-const montserrat = Montserrat({
+const robotoCondensed = Roboto_Condensed({
    subsets: ['latin'] ,
-   weight:['200','400','700'],
-   variable:'--font-montserrat'
+   weight:['300','400','700'],
+   variable:'--font-robotoCondensed'
   })
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${montserrat.className}`}>
+      <body className={`${robotoCondensed.className}`}>
         <Header/>
         <main className='mt-16 mx-auto px-2 max-w-7xl'>
         {children}
