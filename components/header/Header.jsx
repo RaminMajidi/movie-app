@@ -59,7 +59,7 @@ const Header = () => {
                     <button type="button"
                         className="group mx-2 hover:text-[var(--c-orange)] 
                       transition-all duration-700">
-                        <span>Tv's</span>
+                        <span>Tv&apos;s</span>
                     </button>
                     <ul className="group rounded-lg absolute hidden
                      group-hover:block  text-center -left-16 top-6 
