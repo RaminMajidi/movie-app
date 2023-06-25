@@ -1,4 +1,4 @@
-'use client'
+
 import './globals.css'
 import {Roboto_Condensed } from 'next/font/google'
 import Header from '@/components/header/Header'
