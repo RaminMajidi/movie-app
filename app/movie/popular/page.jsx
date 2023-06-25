@@ -1,10 +1,9 @@
 import MoviesItem from "@/components/moviesItem/MoviesItem"
 
 const Movies = async () => {
-
     return (
         <section>
-        <MoviesItem title={'Upcoming'} titleUrl={'upcoming'} />
+            <MoviesItem subUrl={'movie'} title={'Popular'} titleUrl={'popular'} />
         </section>
     )
 }

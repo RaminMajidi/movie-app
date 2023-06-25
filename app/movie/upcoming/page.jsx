@@ -4,7 +4,7 @@ const Movies = async () => {
 
     return (
         <section>
-            <MoviesItem title={'Now Playing'} titleUrl={'now_playing'} />
+        <MoviesItem subUrl={'movie'} title={'Upcoming'} titleUrl={'upcoming'} />
         </section>
     )
 }

@@ -42,7 +42,7 @@ const HomeSlider =  (props) => {
                              mt-2 p-2 w-max rounded-lg text-xs
                              font-semibold md:min-w-[125px] md:text-base"
                                 onClick={() => {
-                                    router.push(`/movies/${data[active].id}`)
+                                    router.push(`/movie/${data[active].id}`)
                                 }}>
                                 Reade More
                             </button>

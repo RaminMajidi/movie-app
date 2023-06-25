@@ -9,7 +9,7 @@ import ImgLoader from "../imgLoader/ImgLoader";
 
 
 
-const MoviesSlider = async ({ data, title }) => {
+const MoviesSlider = async ({ data,subUrl }) => {
     const router = useRouter();
 
     return (
@@ -17,17 +17,6 @@ const MoviesSlider = async ({ data, title }) => {
             {
                 data ? (
                     <>
-                        <div className="flex px-4 pt-6 justify-between
-                         text-[var(--c-gray)]">
-                            <h2 className="font-bold tracking-widest">
-                                {title}
-                            </h2>
-                            <button className="bg-[var(--c-lblue)]
-                             text-[var(--c-white)] px-2 py-1
-                              rounded-md hover:bg-[var(--c-blue)] transition-all">
-                                See All
-                            </button>
-                        </div>
                         <div className="">
                             <Swiper
                                 effect={"coverflow"}
@@ -62,12 +51,12 @@ const MoviesSlider = async ({ data, title }) => {
                                                         group-hover:opacity-95">
                                                         <h3 className="text-[var(--c-black)]
                                                          p-2 text-center">
-                                                            {item.title}
+                                                            {item.title || item.name}
                                                         </h3>
                                                         <button
                                                             title={item.title}
                                                             onClick={
-                                                                () => router.push(`/movies/${item.id}`)
+                                                                () => router.push(`/${subUrl}/${item.id}`)
                                                             }
                                                             className="bg-[var(--c-lblue)] px-2 
                                                          py-1 rounded-md hover:bg-[var(--c-blue)] 

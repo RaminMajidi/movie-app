@@ -29,25 +29,25 @@ const Header = () => {
                      group-hover:block  text-center -left-10 top-6 
                      w-36 bg-[var(--c-orange)] text-[var(--c-black)]">
 
-                        <Link href={`/movies/upcoming`}>
+                        <Link href={`/movie/upcoming`}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer rounded-t-lg">Upcoming</li>
                         </Link>
 
-                        <Link href={`/movies/nowPlaying`}>
+                        <Link href={`/movie/nowPlaying`}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer">Now Playing</li>
                         </Link>
 
-                        <Link href={`/movies/popular`}>
+                        <Link href={`/movie/popular`}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer">Popular</li>
                         </Link>
 
-                        <Link href={`/movies/topRated`}>
+                        <Link href={`/movie/topRated`}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer rounded-b-lg">Top Rated</li>
