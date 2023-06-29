@@ -1,5 +1,5 @@
 'use client'
-import { BsFillStarFill } from "react-icons/bs"
+import AverageStars from "../average/AverageStars";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react"
 import ImgLoader from "../imgLoader/ImgLoader"
@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Parallax, Pagination, Navigation } from "swiper";
+
 
 
 const HomeSlider = (props) => {
@@ -53,32 +54,10 @@ const HomeSlider = (props) => {
                                             data-swiper-parallax="-800">
                                             {item.title}
                                         </div>
-                                        <div className="subtitle flex items-center "
-                                            data-swiper-parallax="-600">
-                                            <p className="font-bold">
-                                                {item.vote_average}
-                                            </p>
-                                            <BsFillStarFill
-                                                className="ml-1"
-                                                color={`${item.vote_average >= 2 ? 'gold' : 'gray'}`}
-                                            />
-                                            <BsFillStarFill
-                                                className="ml-1"
-                                                color={`${item.vote_average >= 4 ? 'gold' : 'gray'}`}
-                                            />
-                                            <BsFillStarFill
-                                                className="ml-1"
-                                                color={`${item.vote_average >= 6 ? 'gold' : 'gray'}`}
-                                            />
-                                            <BsFillStarFill
-                                                className="ml-1"
-                                                color={`${item.vote_average >= 8 ? 'gold' : 'gray'}`}
-                                            />
-                                            <BsFillStarFill
-                                                className="ml-1"
-                                                color={`${item.vote_average >= 9 ? 'gold' : 'gray'}`}
-                                            />
-
+                                        <div className="subtitle" data-swiper-parallax="-600">
+                                            <AverageStars
+                                                col={false}
+                                                average={item.vote_average} />
                                         </div>
                                         <div className="text" data-swiper-parallax="-500">
                                             <p className="text-justify bg-[rgba(0,0,0,0.5)] text-base mt-2

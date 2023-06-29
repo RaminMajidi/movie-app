@@ -1,6 +1,7 @@
 import ImgLoader from "@/components/imgLoader/ImgLoader";
 import BtnBack from "@/components/btnBack/BtnBack";
 import TitleDisc from "@/components/titleDisc/TitleDisc";
+import AverageStars from "@/components/average/AverageStars";
 
 const Movie = async ({ params }) => {
     const { movie } = params
@@ -49,8 +50,6 @@ const Movie = async ({ params }) => {
                                  desc={new Intl.NumberFormat().format(data.revenue) + '$'} />
                                 <TitleDisc title={'Release Date'} desc={data.release_date} />
                                 <TitleDisc title={'Runtime'} desc={data.runtime} />
-                                <TitleDisc title={'Average'} desc={Math.round(data.vote_average) + "/10"} />
-                                <TitleDisc title={'Average'} desc={Math.round(data.vote_average) + "/10"} />
                                 <TitleDisc title={'HomePage'}>
                                     <a title={data.title}
                                         className="text-[var(--c-blue)]  hover:text-[var(--c-orange)]
@@ -67,6 +66,10 @@ const Movie = async ({ params }) => {
                                     </span>
                                 </TitleDisc>
                             </div>
+                            <TitleDisc title={'Average'} style="flex">
+                                <AverageStars
+                                 average={data.vote_average}/>
+                            </TitleDisc>
                             <TitleDisc title={'Genres'}>
                                 {
                                     data.genres.map((item, i) => {
