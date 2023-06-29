@@ -51,22 +51,22 @@ const MoviesSlider = async ({ data,subUrl }) => {
                                                        w-full h-full opacity-0 transition-all
                                                         group-hover:opacity-95">
                                                         <h3 className="text-[var(--c-black)]
-                                                         p-2 text-center">
+                                                         p-2 text-center font-bold">
                                                             {item.title || item.name}
                                                         </h3>
-                                                        <button
+                                                        <AverageStars
+                                                        average={item.vote_average}
+                                                         col={true} />
+                                                         <button
                                                             title={item.title}
                                                             onClick={
                                                                 () => router.push(`/${subUrl}/${item.id}`)
                                                             }
                                                             className="bg-[var(--c-lblue)] px-2 
                                                          py-1 rounded-md hover:bg-[var(--c-blue)] 
-                                                         transition-all mb-2">
+                                                         transition-all mt-5">
                                                             Read More
                                                         </button>
-                                                        <AverageStars
-                                                        average={item.vote_average}
-                                                         col={true} />
                                                         
                                                     </div>
                                                 </div>

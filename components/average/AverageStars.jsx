@@ -12,7 +12,7 @@ const AverageStars = ({average,col}) => {
 
     return (
         <div className={`flex items-center ${col ? 'flex-col' : 'flex-row'}`}>
-            <p className="font-bold">{average.toFixed(1)}</p>
+            <p className="font-bold ml-1">{average.toFixed(1)}</p>
             <div className="flex">
             <BsFillStarFill
                 className="ml-1"
