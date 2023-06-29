@@ -15,5 +15,4 @@ export const getData = async (url)=>{
   }else{
      throw new Error("Error !")
   }
-  
 }

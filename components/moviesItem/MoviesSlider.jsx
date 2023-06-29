@@ -32,7 +32,7 @@ const MoviesSlider = async ({ data,subUrl }) => {
                                 }}
                                 pagination={true}
                                 modules={[EffectCoverflow, Pagination]}
-                                className="mySwiper"
+                                className="movieSwiper"
                             >
                                 {
                                     data.map((item, index) => (

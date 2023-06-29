@@ -18,6 +18,7 @@ const ImgLoader = ({ src, style, alt = '', width = 500, height = 500 }) => {
                 quality={50}
                 className={`w-full h-full opacity-0 ${style} `}
                 loader={imageLoader}
+                onError={()=>console.log(alt)}
                 onLoadingComplete={(image) => {
                     setImgLoading(false)
                     image.classList.remove("opacity-0")

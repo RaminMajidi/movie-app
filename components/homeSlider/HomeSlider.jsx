@@ -1,78 +1,109 @@
 'use client'
-import { useState } from "react"
+import { BsFillStarFill } from "react-icons/bs"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react"
 import ImgLoader from "../imgLoader/ImgLoader"
 import { useRouter } from "next/navigation"
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-const HomeSlider =  (props) => {
+// import required modules
+import { Parallax, Pagination, Navigation } from "swiper";
+
+
+const HomeSlider = (props) => {
+
     const router = useRouter();
-    const [data, setData] =  useState(props.data?.results)
-    const [active, setActive] = useState(0)
+    const [data, setData] = useState()
 
-    const sliderHandeler = (i) => {
-        setActive(i)
-    }
+    useEffect(() => {
+        setData(props.data?.results)
+    }, [props])
 
     return (
         <>
             {
                 data ? (
-                    <div className="relative w-full h-[88vh] mb-3 ">
-                        <ImgLoader
-                            src={data[active].backdrop_path}
-                            style={`rounded-xl transition-all`}
-                            alt="Bg-slider" />
-                        <div className="absolute w-[98%] top-2 left-2 text-[var(--c-black)]">
-                            <h3 className="bg-[var(--c-gray)] mt-2 px-3 py-2
-                               truncate rounded-lg text-xs w-fit max-w-[93%] 
-                              font-semibold md:min-w-[125px] md:text-base">
-                                Title :
-                                <span>
-                                    {data[active].title}
-                                </span>
-                            </h3>
-                            <h3 className="bg-[var(--c-gray)] mt-2 px-3 py-2 w-max 
-                             rounded-lg text-xs font-semibold md:min-w-[125px] md:text-base">
-                                Score :
-                                <span>
-                                    {data[active].vote_average}
-                                </span>
-                            </h3>
-                            <button className="bg-[var(--c-orange)]
-                             mt-2 p-2 w-max rounded-lg text-xs
-                             font-semibold md:min-w-[125px] md:text-base"
-                                onClick={() => {
-                                    router.push(`/movie/${data[active].id}`)
-                                }}>
-                                Reade More
-                            </button>
-                        </div>
-                        <div className="absolute overflow-hidden bottom-2 w-full 
-                         h-[45vh] flex justify-start items-center " >
-                            {data.map((item, index) => {
-                                return (
-                                    <div title={item.title}
-                                        key={index}
-                                        onClick={() => sliderHandeler(+index)}
-                                        className={` transition-all mx-2
-                                          ${active === index ? " w-40 h-[100%] shadow-lg " :
-                                                " w-32 h-[80%] cursor-pointer"}
-                                            ${index > (active + 1) ? 'hidden' :
-                                                index < (active - 1) ? 'hidden' :
-                                                    'inline-block'} `
-                                        }>
-                                        <ImgLoader src={item.poster_path}
-                                            style={'rounded-xl'}
-                                            alt={item.title}
-                                        />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
+                    <Swiper
+                        style={{
+                            "--swiper-navigation-color": "#fff",
+                            "--swiper-pagination-color": "#fff",
+                        }}
+                        speed={1000}
+                        parallax={true}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Parallax, Pagination, Navigation]}
+                        className="mySwiper homeSwiper"
+                    >
+                        {
+                            data.map((item) => (
+                                <SwiperSlide key={item.id} className="relative rounded-xl" >
+                                    <ImgLoader
+                                        alt={item.title}
+                                        src={item.backdrop_path}
+                                        style={'rounded-xl'} />
+                                    <section className="absolute top-1 pl-12 w-full ">
+                                        <div className="title text-[var(--c-orange)]"
+                                            data-swiper-parallax="-800">
+                                            {item.title}
+                                        </div>
+                                        <div className="subtitle flex items-center "
+                                            data-swiper-parallax="-600">
+                                            <p className="font-bold">
+                                                {item.vote_average}
+                                            </p>
+                                            <BsFillStarFill
+                                                className="ml-1"
+                                                color={`${item.vote_average >= 2 ? 'gold' : 'gray'}`}
+                                            />
+                                            <BsFillStarFill
+                                                className="ml-1"
+                                                color={`${item.vote_average >= 4 ? 'gold' : 'gray'}`}
+                                            />
+                                            <BsFillStarFill
+                                                className="ml-1"
+                                                color={`${item.vote_average >= 6 ? 'gold' : 'gray'}`}
+                                            />
+                                            <BsFillStarFill
+                                                className="ml-1"
+                                                color={`${item.vote_average >= 8 ? 'gold' : 'gray'}`}
+                                            />
+                                            <BsFillStarFill
+                                                className="ml-1"
+                                                color={`${item.vote_average >= 9 ? 'gold' : 'gray'}`}
+                                            />
 
-                ) : (<h2 className="text-center text-red-500">Slidre Not fount</h2>)
+                                        </div>
+                                        <div className="text" data-swiper-parallax="-500">
+                                            <p className="text-justify bg-[rgba(0,0,0,0.5)] text-base mt-2
+                                             p-2 rounded-md">
+                                                {item.overview}
+                                            </p>
+                                            <button
+                                                onClick={() => router.push(`/movie/${item.id}`)}
+                                                title={item.title}
+                                                className="bg-[var(--c-lblue)] px-4 py-2
+                                                 mt-4 rounded-md hover:bg-[var(--c-blue)]
+                                                  transition-all"
+                                                type="button"
+                                            >
+                                                Reade More
+                                            </button>
+                                        </div>
+                                    </section>
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
+                ) : (null)
             }
+
         </>
     )
 }
