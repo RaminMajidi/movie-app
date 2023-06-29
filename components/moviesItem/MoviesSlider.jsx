@@ -7,16 +7,22 @@ import { EffectCoverflow, Pagination } from "swiper";
 import { useRouter } from "next/navigation"
 import ImgLoader from "../imgLoader/ImgLoader";
 import AverageStars from "../average/AverageStars";
+import { useEffect, useState } from "react";
 
 
 
-const MoviesSlider = async ({ data,subUrl }) => {
+const MoviesSlider = async ({ data, subUrl }) => {
+    const [slides, setSlides] = useState()
     const router = useRouter();
+
+    useEffect(() => {
+        setSlides(data.results)
+    }, [data])
 
     return (
         <>
             {
-                data ? (
+                slides ? (
                     <>
                         <div className="">
                             <Swiper
@@ -36,7 +42,7 @@ const MoviesSlider = async ({ data,subUrl }) => {
                                 className="movieSwiper"
                             >
                                 {
-                                    data.map((item, index) => (
+                                    slides.map((item, index) => (
                                         <SwiperSlide key={item.id}>
                                             {
                                                 <div className="relative w-full h-full group">
@@ -55,9 +61,9 @@ const MoviesSlider = async ({ data,subUrl }) => {
                                                             {item.title || item.name}
                                                         </h3>
                                                         <AverageStars
-                                                        average={item.vote_average}
-                                                         col={true} />
-                                                         <button
+                                                            average={item.vote_average}
+                                                            col={true} />
+                                                        <button
                                                             title={item.title}
                                                             onClick={
                                                                 () => router.push(`/${subUrl}/${item.id}`)
@@ -67,7 +73,7 @@ const MoviesSlider = async ({ data,subUrl }) => {
                                                          transition-all mt-5">
                                                             Read More
                                                         </button>
-                                                        
+
                                                     </div>
                                                 </div>
                                             }

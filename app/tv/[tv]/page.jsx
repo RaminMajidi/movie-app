@@ -2,6 +2,7 @@ import { getData } from "@/service/HeaderQuery";
 import ImgLoader from "@/components/imgLoader/ImgLoader";
 import BtnBack from "@/components/btnBack/BtnBack";
 import TitleDisc from "@/components/titleDisc/TitleDisc";
+import AverageStars from "@/components/average/AverageStars";
 
 const Movie = async ({ params }) => {
     const { tv } = params
@@ -25,7 +26,6 @@ const Movie = async ({ params }) => {
                     <TitleDisc title={'First Air Date'} desc={data.first_air_date} />
                     <TitleDisc title={'Last Air Date'} desc={data.last_air_date} />
                     <TitleDisc title={'Episud Run Time'} desc={data.episode_run_time} />
-                    <TitleDisc title={'Average'} desc={Math.round(data.vote_average) + "/10"} />
                     <TitleDisc title={'HomePage'}>
                         <a title={data.title}
                             className="text-[var(--c-blue)]  hover:text-[var(--c-orange)]
@@ -42,22 +42,26 @@ const Movie = async ({ params }) => {
                         </span>
                     </TitleDisc>
                 </div>
+                <TitleDisc title={'Average'} style="flex">
+                        <AverageStars
+                            average={data.vote_average} />
+                    </TitleDisc>
                 <TitleDisc title={'Genres'}>
-                        {
-                            data.genres.map((item, i) => {
-                                if (i < 3) {
-                                    return (
-                                        <span key={"genre_" + i}
-                                            className="bg-[var(--c-orange)] inline-block  text-[var(--c-black)] 
+                    {
+                        data.genres.map((item, i) => {
+                            if (i < 3) {
+                                return (
+                                    <span key={"genre_" + i}
+                                        className="bg-[var(--c-orange)] inline-block  text-[var(--c-black)] 
                                           tracking-widest font-semibold text-xs mx-1 my-2  px-2
                                            py-1 rounded-md">
-                                            {item.name}
-                                        </span>
-                                    )
-                                }
-                            })
-                        }
-                    </TitleDisc>
+                                        {item.name}
+                                    </span>
+                                )
+                            }
+                        })
+                    }
+                </TitleDisc>
                 <BtnBack
                     style={
                         `px-6 rounded-md my-3 py-1 bg-[var(--c-lblue)] 
