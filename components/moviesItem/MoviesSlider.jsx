@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper";
 import { useRouter } from "next/navigation"
 import ImgLoader from "../imgLoader/ImgLoader";
+import AverageStars from "../average/AverageStars";
 
 
 
@@ -60,13 +61,13 @@ const MoviesSlider = async ({ data,subUrl }) => {
                                                             }
                                                             className="bg-[var(--c-lblue)] px-2 
                                                          py-1 rounded-md hover:bg-[var(--c-blue)] 
-                                                         transition-all">
+                                                         transition-all mb-2">
                                                             Read More
                                                         </button>
-                                                        <p className="text-center p-4
-                                                         text-[var(--c-black)] font-bold">
-                                                            {item.vote_average}
-                                                        </p>
+                                                        <AverageStars
+                                                        average={item.vote_average}
+                                                         col={true} />
+                                                        
                                                     </div>
                                                 </div>
                                             }
