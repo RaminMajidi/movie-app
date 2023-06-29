@@ -101,7 +101,11 @@ const HomeSlider = (props) => {
                             ))
                         }
                     </Swiper>
-                ) : (null)
+                ) : (
+                    <h2 className="text-center text-red-600">
+                        Slider Not Found
+                    </h2>
+                )
             }
 
         </>

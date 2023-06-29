@@ -23,7 +23,6 @@ export default async function Home() {
   }
   const data = await getDat();
 
-
   return (
     <>
     <HomeSlider key={"test"} data={data}/>
