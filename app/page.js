@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <>
-      <HomeSlider key={"test"} data={data} />
+      <HomeSlider data={data} />
     </>
   )
 }

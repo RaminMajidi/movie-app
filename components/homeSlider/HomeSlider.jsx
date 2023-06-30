@@ -15,20 +15,20 @@ import { Parallax, Pagination, Navigation } from "swiper";
 
 
 
-const HomeSlider = async (props) => {
+const HomeSlider = async ({data}) => {
 
     const router = useRouter();
-    const [data, setData] = useState()
+    const [sliderData, setSliderData] = useState([])
 
     useEffect(() => {
-        console.log(props)
-        setData(props.data?.results)
-    }, [props])
+        console.log(data)
+        setSliderData(data.results)
+    }, [data])
 
     return (
         <>
             {
-                data ? (
+                sliderData.length ? (
                     <Swiper
                         style={{
                             "--swiper-navigation-color": "#fff",
@@ -44,7 +44,7 @@ const HomeSlider = async (props) => {
                         className="mySwiper homeSwiper"
                     >
                         {
-                            data.map((item) => (
+                            sliderData.map((item) => (
                                 <SwiperSlide key={item.id} className="relative rounded-xl" >
                                     <ImgLoader
                                         alt={item.title}
