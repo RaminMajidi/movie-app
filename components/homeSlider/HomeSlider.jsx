@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import AverageStars from "../average/AverageStars";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react"
@@ -20,7 +21,6 @@ const HomeSlider = async ({ data }) => {
 
     useEffect(() => {
         setSliderData(data)
-        console.log(data)
     }, [data])
 
     return (
@@ -47,23 +47,23 @@ const HomeSlider = async ({ data }) => {
                                     alt={item.title}
                                     src={item.backdrop_path}
                                     style={'rounded-xl'} />
-                                <section className="absolute top-1 pl-12 w-full ">
-                                    <div className="title text-[var(--c-orange)]"
+                                <section className="absolute top-1 pl-2 w-full ">
+                                    <div className="title"
                                         data-swiper-parallax="-800">
-                                        {item.title}
+                                        <h2 className="text-[var(--c-orange)]">{item.title}</h2>
                                     </div>
                                     <div className="subtitle" data-swiper-parallax="-600">
                                         <AverageStars
                                             col={false}
                                             average={item.vote_average} />
                                     </div>
-                                    <div className="text" data-swiper-parallax="-500">
-                                        <p className="text-justify bg-[rgba(0,0,0,0.5)] text-base mt-2
-                               p-2 rounded-md">
+                                    <div className="text line-clamp-3" data-swiper-parallax="-500">
+                                        <p className="line-clamp-3 text-justify bg-[rgba(0,0,0,0.5)]
+                                         text-base mt-2 p-2 rounded-md max-w-[80%]">
                                             {item.overview}
                                         </p>
-                                        <button
-                                            onClick={() => router.push(`/movie/${item.id}`)}
+                                        <Link
+                                            href={`/movie/${item.id}`}
                                             title={item.title}
                                             className="bg-[var(--c-lblue)] px-4 py-2
                                    mt-4 rounded-md hover:bg-[var(--c-blue)]
@@ -71,7 +71,7 @@ const HomeSlider = async ({ data }) => {
                                             type="button"
                                         >
                                             Reade More
-                                        </button>
+                                        </Link>
                                     </div>
                                 </section>
                             </SwiperSlide>
