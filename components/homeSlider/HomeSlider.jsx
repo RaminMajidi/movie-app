@@ -15,12 +15,13 @@ import { Parallax, Pagination, Navigation } from "swiper";
 
 
 
-const HomeSlider = (props) => {
+const HomeSlider = async (props) => {
 
     const router = useRouter();
     const [data, setData] = useState()
 
     useEffect(() => {
+        console.log(props)
         setData(props.data?.results)
     }, [props])
 
