@@ -13,8 +13,6 @@ import "swiper/css/navigation";
 // import required modules
 import { Parallax, Pagination, Navigation } from "swiper";
 
-
-
 const HomeSlider = async ({data}) => {
 
     const router = useRouter();
@@ -23,12 +21,12 @@ const HomeSlider = async ({data}) => {
     useEffect(() => {
         console.log(data)
         setSliderData(data.results)
-    }, [data])
+    },[])
 
     return (
         <>
             {
-                sliderData.length ? (
+                sliderData ? (
                     <Swiper
                         style={{
                             "--swiper-navigation-color": "#fff",
