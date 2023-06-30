@@ -13,7 +13,6 @@ const MoviesItem = async ({ title,subUrl, titleUrl, }) => {
             }
         });
         if (res.status === 200) {
-            console.log(res)
             result = await res.json()
             return result;
         }

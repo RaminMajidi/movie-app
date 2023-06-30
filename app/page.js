@@ -1,6 +1,4 @@
 import HomeSlider from "@/components/homeSlider/HomeSlider"
-import { Result } from "postcss";
-
 export default async function Home() {
 
   const getDat = async () =>{
@@ -25,7 +23,9 @@ export default async function Home() {
 
   return (
     <>
+    {data &&
     <HomeSlider key={"test"} data={data}/>
+    }
     </>
   )
 }
