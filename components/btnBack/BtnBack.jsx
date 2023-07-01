@@ -1,10 +1,16 @@
 'use client'
-const BtnBack  = ({style})=>{
-    return(
+import { useRouter } from "next/navigation";
+
+
+const BtnBack = ({ style }) => {
+    const router = useRouter()
+    return (
         <button
-        type="button"
-        className={`${style}`}
-         onClick={()=>history.back()}>Back</button>
+            className={`${style}`}
+            onClick={() => router.back()}
+        >
+            Go back
+        </button>
     )
 }
 

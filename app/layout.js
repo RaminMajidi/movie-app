@@ -2,6 +2,8 @@
 import './globals.css'
 import {Roboto_Condensed } from 'next/font/google'
 import Header from '@/components/header/Header'
+import { Suspense } from 'react'
+import { NavigationEvents } from '@/components/navigation/navigation-events'
 
 const robotoCondensed = Roboto_Condensed({
    subsets: ['latin'] ,
@@ -22,6 +24,9 @@ export default function RootLayout({ children }) {
         <Header/>
         <main className='mt-16 mx-auto px-2 max-w-7xl'>
         {children}
+        <Suspense fallback={null}>
+          <NavigationEvents />
+        </Suspense>
         </main>
       </body>
     </html>
