@@ -4,7 +4,6 @@ import AverageStars from "../average/AverageStars";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react"
 import ImgLoader from "../imgLoader/ImgLoader"
-import { useRouter } from "next/navigation"
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,13 +14,20 @@ import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation } from "swiper";
 
 const HomeSlider = async ({ data }) => {
-
-    const router = useRouter();
+    const [mode, setMode] = useState("Horizontal");
     const [sliderData, setSliderData] = useState(data)
 
     useEffect(() => {
+        (window.innerWidth < window.innerHeight) ? setMode("vertical") : setMode("Horizontal")
         setSliderData(data)
     }, [data])
+
+    useEffect(() => {
+        window.addEventListener('resize', (e) => {
+            const windo = e.target;
+            (windo.innerWidth > windo.innerHeight) ? setMode("Horizontal") : setMode("vertical")
+        })
+    }, [])
 
     return (
         <>
@@ -45,9 +51,9 @@ const HomeSlider = async ({ data }) => {
                             <SwiperSlide key={item.id} className="relative rounded-xl" >
                                 <ImgLoader
                                     alt={item.title}
-                                    src={item.backdrop_path}
+                                    src={mode === 'Horizontal' ? item.backdrop_path : item.poster_path}
                                     style={'rounded-xl'} />
-                                <section className="absolute top-1 pl-2 w-full ">
+                                <section className="absolute top-0 pl-2 md:top-2 md:pl-14 w-full ">
                                     <div className="title"
                                         data-swiper-parallax="-800">
                                         <h2 className="text-[var(--c-orange)]">{item.title}</h2>
@@ -59,14 +65,14 @@ const HomeSlider = async ({ data }) => {
                                     </div>
                                     <div className="text line-clamp-3" data-swiper-parallax="-500">
                                         <p className="line-clamp-3 text-justify bg-[rgba(0,0,0,0.5)]
-                                         text-base mt-2 p-2 rounded-md max-w-[80%]">
+                                         text-lg mt-1 p-1 rounded-md max-w-[80%]">
                                             {item.overview}
                                         </p>
                                         <Link
                                             href={`/movie/${item.id}`}
                                             title={item.title}
                                             className="bg-[var(--c-lblue)] px-4 py-2
-                                   mt-4 rounded-md hover:bg-[var(--c-blue)]
+                                   mt-3 rounded-md hover:bg-[var(--c-blue)]
                                     transition-all"
                                             type="button"
                                         >
