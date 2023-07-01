@@ -130,7 +130,7 @@ body {
   height: 85vh;
   background: #000;
   border-radius: 12px;
-
+  margin-bottom: 1rem;
 }
 
 .homeSwiper .swiper-slide {
@@ -141,17 +141,6 @@ body {
   border-radius: 12px;
   padding: 0 2px;
 }
-
-/* .homeSwiper .parallax-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 130%;
-  height: 100%;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: center;
-} */
 
 .homeSwiper .swiper-slide .title {
   font-size: 41px;

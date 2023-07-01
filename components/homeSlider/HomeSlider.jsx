@@ -14,19 +14,10 @@ import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation } from "swiper";
 
 const HomeSlider = async ({ data }) => {
-    const [mode, setMode] = useState("Horizontal");
     const [sliderData, setSliderData] = useState(data)
     useEffect(() => {
-        (window.innerWidth < window.innerHeight) ? setMode("vertical") : setMode("Horizontal")
         setSliderData(data)
     }, [data])
-
-    useEffect(() => {
-        window.addEventListener('resize', (e) => {
-            const windo = e.target;
-            (windo.innerWidth > windo.innerHeight) ? setMode("Horizontal") : setMode("vertical")
-        })
-    }, [])
 
     return (
         <>
@@ -48,20 +39,10 @@ const HomeSlider = async ({ data }) => {
                     {
                         sliderData.map((item) => (
                             <SwiperSlide key={item.id} className="relative rounded-xl" >
-                                {
-                                    mode === "Horizontal" ? (
-                                        <ImgLoader
-                                            alt={item.title}
-                                            src={item.backdrop_path}
-                                            style={'rounded-xl'} />
-                                    ) : (
-                                        <ImgLoader
-                                            alt={item.title}
-                                            src={item.poster_path}
-                                            style={'rounded-xl'} />
-
-                                    )
-                                }
+                                <ImgLoader
+                                    alt={item.title}
+                                    src={item.backdrop_path}
+                                    style={'rounded-xl'} />
                                 <section className="absolute top-0 pl-2 md:top-2 md:pl-14 w-full ">
                                     <div className="title"
                                         data-swiper-parallax="-800">
