@@ -4,7 +4,6 @@ import "swiper/swiper.min.css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper";
-import { useRouter } from "next/navigation"
 import ImgLoader from "../imgLoader/ImgLoader";
 import AverageStars from "../average/AverageStars";
 import { useEffect, useState } from "react";
@@ -13,8 +12,7 @@ import Link from "next/link";
 
 
 const MoviesSlider = async ({ data, subUrl }) => {
-    const [slides, setSlides] = useState()
-    const router = useRouter();
+    const [slides, setSlides] = useState(data)
 
     useEffect(() => {
         setSlides(data)
@@ -81,7 +79,15 @@ const MoviesSlider = async ({ data, subUrl }) => {
                             </Swiper >
                         </div>
                     </>
-                ) : (null)
+                ) : (
+                    <div>
+                        <p>Sory Not Found</p>
+                        <Link href={'/'}
+                        className="px-6 rounded-md my-3 py-1 bg-[var(--c-lblue)] 
+                        hover:bg-[var(--c-blue)] transition-all"
+                        >Go Home</Link>
+                    </div>
+                )
             }
 
         </>
