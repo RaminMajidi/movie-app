@@ -11,7 +11,7 @@ const Movie = async ({ params }) => {
     const { tv } = params
     const getDat = async () => {
         let result = [];
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${tv}`, {
+        const res = await fetch(`https://api.themoviedb.org/3/tv/${tv}`, {
             next: { revalidate: 60 * 60 * 24 },
             method: 'GET',
             headers: {
@@ -29,6 +29,7 @@ const Movie = async ({ params }) => {
 
     }
     const data = await getDat();
+    console.log(data)
 
     return (
         <>
