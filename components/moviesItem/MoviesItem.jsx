@@ -1,11 +1,11 @@
 import MoviesSlider from "./MoviesSlider"
 
-
-const MoviesItem = async ({ title,subUrl, titleUrl, }) => {
+const MoviesItem = async ({ title, subUrl, titleUrl, }) => {
 
     const getData = async () => {
-        let result ;
+        let result;
         const res = await fetch(`https://api.themoviedb.org/3/${subUrl}/${titleUrl}?language=en-US&page=1`, {
+            next: { revalidate: 60 * 60 * 24 },
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -22,17 +22,13 @@ const MoviesItem = async ({ title,subUrl, titleUrl, }) => {
 
     }
     const data = await getData();
-    
+
     return (
         <>
-            {data ? (
-                <>
-                <h3 className="p-2 text-lg uppercase tracking-widest">{subUrl+" / "+title}</h3>
-                <article className=" border rounded-xl mb-10">
-                    <MoviesSlider data={data} subUrl={subUrl}/>
-                </article>
-                </>
-            ) : (null)}
+            <h3 className="p-2 text-lg uppercase tracking-widest">{subUrl + " / " + title}</h3>
+            <article className=" border rounded-xl mb-10">
+                <MoviesSlider data={data?.results} subUrl={subUrl} />
+            </article>
         </>
 
     )

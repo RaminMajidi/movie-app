@@ -16,7 +16,7 @@ const MoviesSlider = async ({ data, subUrl }) => {
     const router = useRouter();
 
     useEffect(() => {
-        setSlides(data.results)
+        setSlides(data)
     }, [data])
 
     return (

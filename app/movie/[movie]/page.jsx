@@ -2,12 +2,14 @@ import ImgLoader from "@/components/imgLoader/ImgLoader";
 import BtnBack from "@/components/btnBack/BtnBack";
 import TitleDisc from "@/components/titleDisc/TitleDisc";
 import AverageStars from "@/components/average/AverageStars";
+import Link from "next/link";
 
 const Movie = async ({ params }) => {
     const { movie } = params
     const getDat = async () => {
         let result = [];
         const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}`, {
+            next: { revalidate: 60 * 60 * 24 },
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -45,9 +47,9 @@ const Movie = async ({ params }) => {
                             <div className="flex justify-start flex-wrap">
                                 <TitleDisc title={'Language'} desc={data.original_language} />
                                 <TitleDisc title={'Budget'}
-                                 desc={new Intl.NumberFormat().format(data.budget) + '$'} />
+                                    desc={new Intl.NumberFormat().format(data.budget) + '$'} />
                                 <TitleDisc title={'Revenue'}
-                                 desc={new Intl.NumberFormat().format(data.revenue) + '$'} />
+                                    desc={new Intl.NumberFormat().format(data.revenue) + '$'} />
                                 <TitleDisc title={'Release Date'} desc={data.release_date} />
                                 <TitleDisc title={'Runtime'} desc={data.runtime} />
                                 <TitleDisc title={'HomePage'}>
@@ -68,7 +70,7 @@ const Movie = async ({ params }) => {
                             </div>
                             <TitleDisc title={'Average'} style="flex">
                                 <AverageStars
-                                 average={data.vote_average}/>
+                                    average={data.vote_average} />
                             </TitleDisc>
                             <TitleDisc title={'Genres'}>
                                 {
@@ -95,12 +97,11 @@ const Movie = async ({ params }) => {
                     </div>
                 ) : (
                     <div>
-                        <p>Sory Go Back</p>
-                        <BtnBack
-                                style={
-                                    `px-6 rounded-md my-3 py-1 bg-[var(--c-lblue)] 
-                         hover:bg-[var(--c-blue)] transition-all`}
-                            />
+                        <p>Sory Not Found</p>
+                        <Link href={'/'}
+                        className="px-6 rounded-md my-3 py-1 bg-[var(--c-lblue)] 
+                        hover:bg-[var(--c-blue)] transition-all"
+                        >Go Home</Link>
                     </div>
                 )
             }
