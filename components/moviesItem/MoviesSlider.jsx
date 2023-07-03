@@ -62,7 +62,7 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                                             average={item.vote_average}
                                                             col={true} />
                                                         <Link
-                                                            href={`/${subUrl}/${item.id}`}
+                                                            href={`/categories/${subUrl}/${item.id}`}
                                                             title={item.title}
                                                             className="bg-[var(--c-lblue)] px-2 
                                                          py-1 rounded-md hover:bg-[var(--c-blue)] 

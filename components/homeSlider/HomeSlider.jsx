@@ -62,7 +62,7 @@ const HomeSlider = async ({ data }) => {
                                             {item.overview}
                                         </p>
                                         <Link
-                                            href={`/movie/${item.id}`}
+                                            href={`categories/movie/${item.id}`}
                                             title={item.title}
                                             className="bg-[var(--c-lblue)] px-4 py-2
                                    mt-3 rounded-md hover:bg-[var(--c-blue)]

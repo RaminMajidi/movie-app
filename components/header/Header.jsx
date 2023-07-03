@@ -29,25 +29,25 @@ const Header = () => {
                      group-hover:block  text-center -left-6 top-6 
                      w-28 bg-[var(--c-orange)] text-[var(--c-black)]">
 
-                        <Link href={'/movie/upcoming'}>
+                        <Link href={'/categories/movie/upcoming'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer rounded-t-lg">Upcoming</li>
                         </Link>
 
-                        <Link href={'/movie/nowPlaying'}>
+                        <Link href={'/categories/movie/nowPlaying'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer">Now Playing</li>
                         </Link>
 
-                        <Link href={'/movie/popular'}>
+                        <Link href={'/categories/movie/popular'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer">Popular</li>
                         </Link>
 
-                        <Link href={'/movie/topRated'}>
+                        <Link href={'/categories/movie/topRated'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer rounded-b-lg">Top Rated</li>
@@ -65,25 +65,25 @@ const Header = () => {
                      group-hover:block  text-center -left-16 top-6 
                      w-28 bg-[var(--c-orange)] text-[var(--c-black)]">
 
-                        <Link href={'/tv/airingToday'}>
+                        <Link href={'/categories/tv/airingToday'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer rounded-t-lg">Airing Today</li>
                         </Link>
 
-                        <Link href={'/tv/onTheAir'}>
+                        <Link href={'/categories/tv/onTheAir'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer">On The Air</li>
                         </Link>
 
-                        <Link href={'/tv/popular'}>
+                        <Link href={'/categories/tv/popular'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer">Popular</li>
                         </Link>
 
-                        <Link href={'/tv/topRated'}>
+                        <Link href={'/categories/tv/topRated'}>
                             <li className="p-1 hover:bg-[var(--c-black)]
                          hover:text-[var(--c-orange)] transition-all
                           cursor-pointer rounded-b-lg">Top Rated</li>
