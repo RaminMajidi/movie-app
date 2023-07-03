@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import ImgLoader from "../imgLoader/ImgLoader";
 import AverageStars from "../average/AverageStars";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 
 
@@ -63,17 +64,14 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                                         <AverageStars
                                                             average={item.vote_average}
                                                             col={true} />
-                                                        <button
+                                                        <Link
+                                                            href={`/${subUrl}/${item.id}`}
                                                             title={item.title}
-                                                            onClick={
-                                                                () => router.push(`/${subUrl}/${item.id}`)
-                                                            }
                                                             className="bg-[var(--c-lblue)] px-2 
                                                          py-1 rounded-md hover:bg-[var(--c-blue)] 
                                                          transition-all mt-5">
                                                             Read More
-                                                        </button>
-
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             }
