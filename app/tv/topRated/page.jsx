@@ -1,11 +1,40 @@
-import MoviesItem from "@/components/moviesItem/MoviesItem"
+import Loading from "@/app/Loading";
+import MoviesSlider from "@/components/moviesItem/MoviesSlider";
+import { Suspense } from "react";
 
-const TvAiringToday = async () => {
+const TvPopular = async () => {
+
+    const getData = async () => {
+        let result;
+        const res = await fetch(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1`, {
+            next: { revalidate: 60 * 60 * 24 },
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${process.env.ACCIC_TOKEN}`
+            }
+        });
+        if (res.status === 200) {
+            result = await res.json()
+            return result;
+        }
+        else {
+            return false;
+        }
+
+    }
+    const data = await getData();
+
     return (
-        <section>
-            <MoviesItem subUrl={'tv'} title={'Top Rated'} titleUrl={'top_rated'} />
-        </section>
+        <Suspense fallback={<Loading />}>
+            <section>
+                <h3 className="p-2 text-lg uppercase tracking-widest">Tv / Top Rated</h3>
+                <article className="rounded-xl mb-10">
+                    <MoviesSlider data={data} subUrl={'tv'} />
+                </article>
+            </section>
+        </Suspense>
     )
 }
 
-export default TvAiringToday
+export default TvPopular

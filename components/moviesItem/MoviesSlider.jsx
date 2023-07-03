@@ -10,18 +10,19 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const MoviesSlider = async ({ data, subUrl }) => {
-    const [slides, setSlides] = useState(data)
+    const [slides, setSlides] = useState(data?.results)
 
     useEffect(() => {
-        setSlides(data)
+        setSlides(data?.results)
     }, [data])
 
     return (
+       
         <>
             {
                 slides ? (
                     <>
-                        <div className="">
+                        <div className="border rounded-xl mb-10">
                             <Swiper
                                 effect={"coverflow"}
                                 grabCursor={true}
