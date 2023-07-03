@@ -1,5 +1,7 @@
 'use client'
 import Link from "next/link";
+import { Suspense } from "react";
+import Loading from "@/app/Loading";
 import AverageStars from "../average/AverageStars";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react"
@@ -22,6 +24,7 @@ const HomeSlider = async ({ data }) => {
     return (
         <>
             {sliderData ? (
+                <Suspense fallback={<Loading/>}>
                 <Swiper
                     style={{
                         "--swiper-navigation-color": "#fff",
@@ -74,6 +77,7 @@ const HomeSlider = async ({ data }) => {
                         ))
                     }
                 </Swiper>
+                </Suspense>
 
             ) :
                 (<p className="text-red-600 text-center">Slidr Not Foun</p>)}

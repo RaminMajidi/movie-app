@@ -3,6 +3,9 @@ import BtnBack from "@/components/btnBack/BtnBack";
 import TitleDisc from "@/components/titleDisc/TitleDisc";
 import AverageStars from "@/components/average/AverageStars";
 import Link from "next/link";
+import { Suspense } from "react";
+import Loading from "@/app/Loading";
+
 
 const Movie = async ({ params }) => {
     const { tv } = params
@@ -30,6 +33,7 @@ const Movie = async ({ params }) => {
     return (
         <>
             {data ? (
+                <Suspense fallback={<Loading/>}>
                 <div className="grid grid-cols-12 gap-6 mb-4">
                     <div className=" col-start-2 col-span-10 sm:col-span-4 md:col-span-3 lg:col-span-4 ">
                         <ImgLoader
@@ -90,6 +94,7 @@ const Movie = async ({ params }) => {
                         />
                     </div>
                 </div>
+                </Suspense>
             ) : (
                 <div>
                     <p>Sory Not Found</p>

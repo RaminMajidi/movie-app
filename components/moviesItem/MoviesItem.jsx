@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import MoviesSlider from "./MoviesSlider"
+import Loading from "@/app/Loading";
 
 const MoviesItem = async ({ title, subUrl, titleUrl, }) => {
 
@@ -25,10 +27,12 @@ const MoviesItem = async ({ title, subUrl, titleUrl, }) => {
 
     return (
         <>
-            <h3 className="p-2 text-lg uppercase tracking-widest">{subUrl + " / " + title}</h3>
-            <article className=" border rounded-xl mb-10">
-                <MoviesSlider data={data?.results} subUrl={subUrl} />
-            </article>
+            <Suspense fallback={<Loading/>}>
+                <h3 className="p-2 text-lg uppercase tracking-widest">{subUrl + " / " + title}</h3>
+                <article className=" border rounded-xl mb-10">
+                    <MoviesSlider data={data?.results} subUrl={subUrl} />
+                </article>
+            </Suspense>
         </>
 
     )

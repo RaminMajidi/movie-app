@@ -9,8 +9,6 @@ import AverageStars from "../average/AverageStars";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-
-
 const MoviesSlider = async ({ data, subUrl }) => {
     const [slides, setSlides] = useState(data)
 
