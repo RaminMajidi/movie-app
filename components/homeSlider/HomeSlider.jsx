@@ -63,7 +63,7 @@ const HomeSlider = async ({ data }) => {
                                         <div className="text" data-swiper-parallax="-500">
                                             <p className="line-clamp-1 md:line-clamp-4 
                                         text-justify bg-[rgba(0,0,0,0.5)]
-                                         text-lg mt-1 p-1 rounded-md max-w-[90%]">
+                                         text-lg  rounded-md max-w-[90%]">
                                                 {item.overview}
                                             </p>
                                             <Link

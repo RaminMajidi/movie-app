@@ -7,10 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-     fontFamily:{
-      montserrat:['var(--font-robotoCondensed)']
-     }
+      fontFamily: {
+        montserrat: ['var(--font-robotoCondensed)']
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ],
 }
