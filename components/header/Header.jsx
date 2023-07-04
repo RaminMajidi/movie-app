@@ -21,7 +21,7 @@ const Header = () => {
 
                 <div className="relative group">
                     <button type="button"
-                        className="group mx-2 hover:text-[var(--c-orange)] 
+                        className="group  mx-2 hover:text-[var(--c-orange)] 
                       transition-all duration-700">
                         <span>Movies</span>
                     </button>

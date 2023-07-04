@@ -1,6 +1,6 @@
-import Loading from "@/app/Loading";
+import SectionSlider from "@/components/moviesItem/SectionSlider";
 import MoviesSlider from "@/components/moviesItem/MoviesSlider";
-import { Suspense } from "react";
+
 
 const TvAiringToday = async () => {
 
@@ -26,14 +26,9 @@ const TvAiringToday = async () => {
     const data = await getData();
 
     return (
-        <Suspense fallback={<Loading />}>
-            <section>
-                <h3 className="p-2 text-lg uppercase tracking-widest">Tv / Airing Today</h3>
-                <article className="rounded-xl mb-10">
-                    <MoviesSlider data={data} subUrl={'tv'} />
-                </article>
-            </section>
-        </Suspense>
+        <SectionSlider key={'airing_today'} title={'Tv / Airing Today'}>
+            <MoviesSlider data={data} subUrl={'tv'} />
+        </SectionSlider>
     )
 }
 
