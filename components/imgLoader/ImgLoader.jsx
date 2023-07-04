@@ -1,11 +1,16 @@
 'use client'
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 const ImgLoader = ({ src, style, alt = '', width = 500, height = 500 }) => {
+    const [srcUrl, setSrcUrl] = useState(src)
     const imageLoader = ({ src }) => {
         return `https://image.tmdb.org/t/p/original${src}`
     }
     const [imgLoading, setImgLoading] = useState(true)
+
+    useEffect(()=>{
+        setSrcUrl(src)
+    },[src])
 
     return (
         <div key={alt + "_img"} className={`w-full h-full relative transition-all  ${style}`}>
@@ -23,7 +28,7 @@ const ImgLoader = ({ src, style, alt = '', width = 500, height = 500 }) => {
                     setImgLoading(false)
                     image.classList.remove("opacity-0")
                 }}
-                src={src}
+                src={srcUrl}
                 width={width}
                 height={height}
                 priority={true}
