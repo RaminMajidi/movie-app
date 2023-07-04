@@ -16,31 +16,11 @@ import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation } from "swiper";
 
 const HomeSlider = async ({ data }) => {
-    const [modeScreen, setModetScreen] = useState('')
     const [sliderData, setSliderData] = useState(data)
 
     useEffect(() => {
         setSliderData(data)
     }, [data])
-
-    useEffect(()=>{
-        const w = window.innerHeight;
-        const h = window.innerWidth;
-        w>h ? setModetScreen("Horizontal") : setModetScreen('Vertical')
-    },[])
-
-
-    useEffect(() => {
-        window.addEventListener('resize', (e) => {
-            if ((window.innerWidth - window.innerHeight) < 0 && modeScreen != "Vertical") {
-                setModetScreen('Vertical')
-            }
-            if ((window.innerHeight - window.innerWidth) < 0 && modeScreen != "Horizontal") {
-                setModetScreen('Horizontal')
-            }
-        })
-
-    }, [])
 
     return (
         <>
@@ -65,7 +45,7 @@ const HomeSlider = async ({ data }) => {
                                 <SwiperSlide key={item.id} className="relative rounded-xl" >
                                     <ImgLoader
                                         alt={item.title}
-                                        src={modeScreen === "Horizontal" ? item.backdrop_path : item.poster_path}
+                                        src={item.backdrop_path}
                                         style={'rounded-xl'} />
                                     <section className="absolute top-2 pl-3 md:top-2
                                      md:pl-14 w-full h-full flex flex-col">
