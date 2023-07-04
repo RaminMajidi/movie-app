@@ -47,32 +47,34 @@ const HomeSlider = async ({ data }) => {
                                         src={item.backdrop_path}
                                         style={'rounded-xl'} />
                                     <section className="absolute top-2 pl-3 md:top-2
-                                     md:pl-14 w-full h-full">
-                                        <div className="title"
+                                     md:pl-14 w-full h-full flex flex-col">
+                                        <div className="title text-[var(--c-orange)] text-4xl
+                                         md:text-4xl line-clamp-1 p-1 "
                                             data-swiper-parallax="-800">
-                                            <h3 className="text-[var(--c-orange)] text-3xl
-                                         md:text-5xl line-clamp-1">
-                                                {item.title}
-                                            </h3>
+                                            {item.title}
                                         </div>
-                                        <div className="subtitle" data-swiper-parallax="-600">
+                                        <div className="subtitle mt-1"
+                                            data-swiper-parallax="-600">
                                             <AverageStars
                                                 col={false}
                                                 average={item.vote_average} />
                                         </div>
-                                        <div className="text" data-swiper-parallax="-500">
-                                            <p className="line-clamp-1 md:line-clamp-4 
+                                        <div className="text mt-1"
+                                            data-swiper-parallax="-500">
+                                            <p className=" line-clamp-1 md:line-clamp-4 
                                         text-justify bg-[rgba(0,0,0,0.5)]
-                                         text-lg  rounded-md max-w-[90%]">
+                                         text-lg  rounded-md max-w-[90%] p-1">
                                                 {item.overview}
                                             </p>
+                                        </div>
+                                        <div className="text mt-1" data-swiper-parallax="-300">
                                             <Link
                                                 href={`categories/movie/${item.id}`}
                                                 title={item.title}
                                                 className="bg-[var(--c-lblue)] px-3 py-2
-                                                 mt-3 rounded-md 
+                                                 mt-1 rounded-md 
                                                   hover:bg-[var(--c-blue)]
-                                                   transition-all"
+                                                   transition-all inline-block"
                                                 type="button"
                                             >
                                                 Reade More

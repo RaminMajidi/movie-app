@@ -50,10 +50,10 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                                         src={item.poster_path}
                                                     />
                                                     <div className="rounded-xl absolute z-10
-                                                     bg-[var(--c-gray)] flex flex-col
+                                                     bg-[var(--c-gray)]  flex-col
                                                       justify-center items-center top-0 left-0
-                                                       w-full h-full opacity-0 transition-all
-                                                        group-hover:opacity-95">
+                                                       w-full h-full hidden opacity-0 transition-all
+                                                        group-hover:flex group-hover:opacity-95">
                                                         <h3 className="text-[var(--c-black)]
                                                          p-2 text-center font-bold">
                                                             {item.title || item.name}
