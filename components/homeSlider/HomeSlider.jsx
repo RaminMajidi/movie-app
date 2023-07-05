@@ -1,5 +1,5 @@
 'use client'
-import Link from "next/link";
+import BtnReade from "../btnReade/BtnReade";
 import { Suspense } from "react";
 import Loading from "@/app/Loading";
 import AverageStars from "../average/AverageStars";
@@ -69,17 +69,9 @@ const HomeSlider = async ({ data }) => {
                                             </p>
                                         </div>
                                         <div className="text mt-1" data-swiper-parallax="-300">
-                                            <Link
-                                                href={`categories/movie/${item.id}`}
-                                                title={item.title}
-                                                className="bg-[var(--c-lblue)] px-3 py-2
-                                                 mt-1 rounded-md 
-                                                  hover:bg-[var(--c-blue)]
-                                                   transition-all inline-block"
-                                                type="button"
-                                            >
-                                                Reade More
-                                            </Link>
+                                            <BtnReade 
+                                            title={item.title}
+                                            url={`categories/movie/${item.id}`}/>
                                         </div>
                                     </section>
                                 </SwiperSlide>

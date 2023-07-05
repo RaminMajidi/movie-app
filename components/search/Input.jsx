@@ -4,22 +4,37 @@ import { BiSearchAlt } from "react-icons/bi"
 
 const Input = ({ searchParam, setSearchParam, searchHandler, classStyle }) => {
 
-    const [error,setError] = useState(false)
+    const [error, setError] = useState(false)
 
-    function handeler (){
-        if(searchParam.length >= 4){
+    function changeHandler(e) {
+        let search = e.target.value
+        setSearchParam(search)
+        if (error && search.length >= 3) {
+            setError(false)
+        }
+    }
+
+    function keyUpHandler (key){
+        if(key === 'Enter'){
+            searchHandeler()
+        }
+    }
+
+    function searchHandeler() {
+        if (searchParam.length >= 4) {
             setError(false)
             searchHandler()
-        }else{
+        } else {
             setError(true)
-        }  
+        }
     }
 
     return (
         <div className="relative">
             <input
+                onKeyUp={(e)=>keyUpHandler(e.key)}
                 value={searchParam}
-                onChange={(e) => setSearchParam(e.target.value)}
+                onChange={(e) => changeHandler(e)}
                 type={"text"}
                 placeholder={"Search Movie And Tv"}
                 className={`w-full my-2 rounded-xl px-4 py-1 
@@ -27,7 +42,7 @@ const Input = ({ searchParam, setSearchParam, searchHandler, classStyle }) => {
             text-lg font-semibold ${classStyle}`}
             />
             <BiSearchAlt
-                onClick={handeler}
+                onClick={searchHandeler}
                 size={24}
                 title="Search"
                 className="absolute right-4 top-4 cursor-pointer

@@ -1,4 +1,5 @@
 'use client'
+import SearchLoading from "./SearechLoading"
 import Input from "./Input"
 import Items from "./Items"
 import { useEffect, useState } from "react"
@@ -8,27 +9,33 @@ import { Alert } from "../alert/Alert"
 const SearchItems = () => {
     const [searchParam, setSearchParam] = useState('')
     const [data, setData] = useState()
+    const [loading, setLoading] = useState(false);
 
 
     async function searchHandler() {
+        setLoading(true)
         const res = await fetch(`https://api.themoviedb.org/3/search/multi?query=${searchParam}&include_adult=false&language=en-US&page=1`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: `Bearer ${process.env.ACCIC_TOKEN}`
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlODI3ZWIwYWMyMGM2NjNlZjA0ZGVjMDRmNzQ2MDAyZCIsInN1YiI6IjY0NjEyYzJhYzY4YjY5MDBmYzJhMDMyNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8T3tLC8fjQtRPAru3KVmwAbUTy0m3V0o4zbJ9ToSYYE`
             }
         });
         if (res.status === 200) {
             let data = await res.json()
             console.log(data)
             setData(data)
-        }else
-        if(res.status === 401 || res.status === 403){
-            Alert('warning',"Please be careful when entering the name",'warning')
-        }
-        else {
-            Alert('Error',"A problem occurred. Please try again at another time",'error')
-        }
+            setLoading(false)
+        } else
+            if (res.status === 401 || res.status === 403) {
+                Alert('warning', "Please be careful when entering the name", 'warning')
+                setLoading(false)
+            }
+            else {
+                Alert('Error', "A problem occurred. Please try again at another time", 'error')
+                setLoading(false)
+            }
+           
     }
 
 
@@ -43,10 +50,9 @@ const SearchItems = () => {
                 searchHandler={searchHandler}
                 type={"text"}
             />
-            {
-                data &&
-                <Items data={data} />
-            }
+            {loading ? (<SearchLoading />) :
+                data ? (<Items data={data} />) :
+                    (null)}
 
         </section>
     )
