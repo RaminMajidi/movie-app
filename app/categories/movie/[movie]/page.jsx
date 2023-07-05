@@ -29,7 +29,6 @@ const Movie = async ({ params }) => {
 
     }
     const data = await getDat();
-
     return (
         <>
             {

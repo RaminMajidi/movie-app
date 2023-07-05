@@ -90,6 +90,14 @@ const Header = () => {
                         </Link>
                     </ul>
                 </div>
+
+                <div>
+                    <Link href={'/search'}
+                        className="mx-2 hover:text-[var(--c-orange)]
+                      transition-all duration-700">
+                        <span >Search</span>
+                    </Link>
+                </div>
             </div>
         </header>
     )
