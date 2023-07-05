@@ -2,11 +2,12 @@ import Link from "next/link"
 
 const Header = () => {
     return (
-        <header className="bg-[var(--c-bg)] text-[var(--c-gray)]
-         border-b-2 font-bold  fixed w-full h-[3rem] top-0 left-0
-          z-50 px-6 py-4 flex justify-between items-center">
+        <header className="max-w-7xl bg-[var(--c-bg)] text-[var(--c-gray)]
+         border-b-2 font-bold  fixed w-full h-[3rem] top-0
+          z-50 px-2 py-4 flex justify-center 
+          sm:justify-between sm:px-4 items-center">
             <div>
-                <h2 className="">Movie App</h2>
+                <h2 className="hidden sm:block">Movie App</h2>
             </div>
 
             <div className="flex">
@@ -62,7 +63,7 @@ const Header = () => {
                         <span>Tv&apos;s</span>
                     </button>
                     <ul className="group rounded-lg absolute hidden
-                     group-hover:block  text-center -left-16 top-6 
+                     group-hover:block  text-center -left-10 top-6 
                      w-28 bg-[var(--c-orange)] text-[var(--c-black)]">
 
                         <Link href={'/categories/tv/airingToday'}>

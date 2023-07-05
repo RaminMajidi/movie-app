@@ -8,14 +8,14 @@ const Item = ({itemId, title, imgUrl, category, desc }) => {
     return (
         <div className="col-span-10 col-start-2 
         md:col-span-8 md:col-start-3
-        lg:col-span-6 flex flex-col sm:flex-row border rounded-xl">
-            <div className="w-full sm:w-[30%] min-w-[160px] ">
+        lg:col-span-6 flex flex-col sm:flex-row rounded-xl border ">
+            <div className="w-full sm:min-w-[160px] sm:max-w-[160px] ">
                 <ImgLoader
-                style={'rounded-t-xl sm:rounded-s-xl'}
+                style={'rounded-t-xl sm:rounded-tl-xl sm:rounded-bl-xl'}
                     src={imgUrl}
                     alt={title} />
             </div>
-            <div className="p-3 flex flex-col justify-around relative">
+            <div className="p-4 flex flex-col justify-around relative">
                 <TitleDisc title={'Title'} desc={title} 
                 style="line-clamp-1" />
                 <TitleDisc title={'Ctegory'} desc={category} />

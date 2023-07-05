@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Item from "./Item"
+import NotItem from "./NotItem"
 
 const Items = ({ data }) => {
 
@@ -28,34 +29,41 @@ const Items = ({ data }) => {
 
     return (
         <article className="pt-1 pb-6 px-2 ">
+
+            {items.length ?
+            (
+<div className="text-center mb-4 py-3">
+                    <h3 className="p-4 text-2xl">Filter By</h3>
+                    <button
+                        onClick={() => filterHandler('all')}
+                        className={`mx-4 px-4 rounded-lg font-bold text-lg
+                  ${filter === "all" ? "bg-[var(--c-green)] text-[var(--c-white)]" :
+                                "bg-[var(--c-orange)] text-[var(--c-black)]"}`}>
+                        All
+                    </button>
+                    <button
+                        onClick={() => filterHandler('movie')}
+                        className={`mx-4 px-4 rounded-lg font-bold text-lg
+                 ${filter === "movie" ? "bg-[var(--c-green)] text-[var(--c-white)]" :
+                                "bg-[var(--c-orange)] text-[var(--c-black)]"}`}>
+                        Movie
+                    </button>
+                    <button
+                        onClick={() => filterHandler('tv')}
+                        className={`mx-4 px-4 rounded-lg font-bold text-lg
+                 ${filter === "tv" ? "bg-[var(--c-green)] text-[var(--c-white)]" :
+                                "bg-[var(--c-orange)] text-[var(--c-black)]"}`}>
+                        Tv
+                    </button>
+
+                </div>
+            )
+            :
+            (null)    
+            }
             {
                 copyItems.length ? (
                     <>
-                        <div className="text-center mb-4 py-3">
-                            <h3 className="p-4 text-2xl">Filter By</h3>
-                            <button
-                                onClick={() => filterHandler('all')}
-                                className={`mx-4 px-4 rounded-lg font-bold text-lg
-                                 ${filter==="all" ? "bg-[var(--c-green)] text-[var(--c-white)]" :
-                                 "bg-[var(--c-orange)] text-[var(--c-black)]"}`}>
-                                All
-                            </button>
-                            <button
-                                onClick={() => filterHandler('movie')}
-                                className={`mx-4 px-4 rounded-lg font-bold text-lg
-                                ${filter==="movie" ? "bg-[var(--c-green)] text-[var(--c-white)]" :
-                                "bg-[var(--c-orange)] text-[var(--c-black)]"}`}>
-                                Movie
-                            </button>
-                            <button
-                                onClick={() => filterHandler('tv')}
-                                className={`mx-4 px-4 rounded-lg font-bold text-lg
-                                ${filter==="tv" ? "bg-[var(--c-green)] text-[var(--c-white)]" :
-                                "bg-[var(--c-orange)] text-[var(--c-black)]"}`}>
-                                Tv
-                            </button>
-
-                        </div>
                         <div className="grid grid-cols-12 gap-4">
                             {copyItems.map((item) => {
                                 if (item.poster_path) {
@@ -76,9 +84,7 @@ const Items = ({ data }) => {
                     </>
                 ) :
                     (
-                        <h3 className="text-center p-8 text-red-500 text-2xl">
-                            Items Not Found
-                        </h3>
+                        <NotItem />
                     )
             }
         </article>

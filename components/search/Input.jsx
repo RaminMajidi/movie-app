@@ -43,9 +43,9 @@ const Input = ({ searchParam, setSearchParam, searchHandler, classStyle }) => {
             />
             <BiSearchAlt
                 onClick={searchHandeler}
-                size={24}
+                size={32}
                 title="Search"
-                className="absolute right-4 top-4 cursor-pointer
+                className="absolute font-bold right-4 top-3 cursor-pointer
          text-[var(--c-orange)] "/>
             <p className={`text-red-500 pl-3 tracking-wider ${!error ? "hidden" : "block"}`}>
                 Please enter at least 4 characters

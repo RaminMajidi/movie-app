@@ -47,10 +47,10 @@ const HomeSlider = async ({ data }) => {
                                         alt={item.title}
                                         src={item.backdrop_path}
                                         style={'rounded-xl'} />
-                                    <section className="absolute top-2 pl-3 md:top-2
+                                    <section className="absolute top-0 pl-3 md:top-2
                                      md:pl-14 w-full h-full flex flex-col">
-                                        <div className="title text-[var(--c-orange)] text-4xl
-                                         md:text-4xl line-clamp-1 p-1 "
+                                        <div className="title text-[var(--c-orange)] text-2xl
+                                         md:text-4xl line-clamp-1 p-1 pt-2 "
                                             data-swiper-parallax="-800">
                                             {item.title}
                                         </div>
