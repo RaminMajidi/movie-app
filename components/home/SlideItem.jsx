@@ -26,7 +26,7 @@ const SlideItem = ({ id, title, backdrop, overview, average }) => {
                 </div>
                 <div className="line-clamp-2 md:line-clamp-4
                  max-w-md my-2 text-base w-[90%]
-                 bg-[rgba(0,0,0,0.5)] p-1 rounded-lg"
+                 bg-[rgba(0,0,0,0.5)] p-1 rounded-lg text-justify"
                     data-swiper-parallax="-200">
                     {overview}
                 </div>

@@ -35,7 +35,10 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                     modifier: 1,
                                     slideShadows: true,
                                 }}
-                                pagination={true}
+                                pagination={{
+                                    clickable: true,
+                                    dynamicBullets: true,
+                                }}
                                 modules={[EffectCoverflow, Pagination]}
                                 className="movieSwiper"
                             >
@@ -45,6 +48,7 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                             {
                                                 <div className="relative w-full h-full group">
                                                     <ImgLoader
+                                                    style={'rounded-xl'}
                                                         key={item.title}
                                                         alt={item.title}
                                                         src={item.poster_path}

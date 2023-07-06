@@ -1,9 +1,13 @@
-
+import AiringToday from "./AiringToday";
+import TopRated from "./TopRated";
 
 const Tv = () =>{
 
     return(
-        <h1>Tv</h1>
+        <section className="grid grid-cols-12 gap-4 px-3 py-4">
+            <AiringToday/>
+            <TopRated/>
+        </section>
     )
 }
 

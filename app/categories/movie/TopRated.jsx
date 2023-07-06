@@ -2,11 +2,11 @@ import SectionSlider from "@/components/moviesItem/SectionSlider";
 import MoviesSlider from "@/components/moviesItem/MoviesSlider";
 
 
-const TvOnTheAir = async () => {
+const TopRated = async () => {
 
     const getData = async () => {
         let result;
-        const res = await fetch(`https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1`, {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1`, {
             next: { revalidate: 60 * 60 * 24 },
             method: 'GET',
             headers: {
@@ -26,10 +26,12 @@ const TvOnTheAir = async () => {
     const data = await getData();
 
     return (
-        <SectionSlider key={'on_the_air'} title={'Tv / On The Air'}>
-            <MoviesSlider data={data} subUrl={'tv'} />
+
+        <SectionSlider key={'top_rated'} title={'Move / Top Rated'}>
+            <MoviesSlider data={data} subUrl={'movie'} />
         </SectionSlider>
+
     )
 }
 
-export default TvOnTheAir
+export default TopRated

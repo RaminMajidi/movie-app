@@ -8,10 +8,10 @@ const Item = ({ itemId, title, imgUrl, category, desc }) => {
     return (
         <div className="col-span-10 col-start-2 
         md:col-span-8 md:col-start-3
-        lg:col-span-6 flex flex-col sm:flex-row rounded-xl border ">
+        lg:col-span-6 flex flex-col sm:flex-row rounded-xl border p-3">
             <div className="w-full sm:min-w-[160px] sm:max-w-[160px] ">
                 <ImgLoader
-                    style={'rounded-t-xl sm:rounded-tl-xl sm:rounded-bl-xl'}
+                    style={'rounded-md '}
                     src={imgUrl}
                     alt={title} />
             </div>

@@ -1,7 +1,7 @@
 import MoviesSlider from "@/components/moviesItem/MoviesSlider";
 import SectionSlider from "@/components/moviesItem/SectionSlider";
 
-const TvPopular = async () => {
+const TopRated = async () => {
 
     const getData = async () => {
         let result;
@@ -31,4 +31,4 @@ const TvPopular = async () => {
     )
 }
 
-export default TvPopular
+export default TopRated

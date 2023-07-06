@@ -2,7 +2,7 @@ import SectionSlider from "@/components/moviesItem/SectionSlider";
 import MoviesSlider from "@/components/moviesItem/MoviesSlider";
 
 
-const TvAiringToday = async () => {
+const AiringToday = async () => {
 
     const getData = async () => {
         let result;
@@ -32,4 +32,4 @@ const TvAiringToday = async () => {
     )
 }
 
-export default TvAiringToday
+export default AiringToday
