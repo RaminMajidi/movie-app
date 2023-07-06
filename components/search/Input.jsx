@@ -9,7 +9,7 @@ const Input = ({ searchParam, setSearchParam, searchHandler, classStyle }) => {
     function changeHandler(e) {
         let search = e.target.value
         setSearchParam(search)
-        if (error && search.length >= 3) {
+        if (error && search.length > 3) {
             setError(false)
         }
     }

@@ -1,5 +1,5 @@
 import style from "./styles.module.css"
-const SearchLoading = () => {
+const CircleLoading = () => {
 
     return (
         <section className={style.searchLoading}>
@@ -12,4 +12,4 @@ const SearchLoading = () => {
     )
 }
 
-export default SearchLoading
+export default CircleLoading

@@ -1,6 +1,6 @@
-import HomeSlider from "@/components/homeSlider/HomeSlider"
 import { Suspense } from "react";
 import Loading from "./Loading";
+import HomePage from "@/components/home/HomePage";
 
 export default async function Home() {
   const res = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', {
@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <>
       <Suspense fallback={<Loading/>}>
-        <HomeSlider data={data?.results} />
+        <HomePage data={data?.results} />
       </Suspense>
     </>
   )

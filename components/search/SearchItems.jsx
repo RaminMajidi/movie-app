@@ -1,5 +1,5 @@
 'use client'
-import SearchLoading from "./SearechLoading"
+import CircleLoading from "../loading/CircleLoading"
 import Input from "./Input"
 import Items from "./Items"
 import { useEffect, useState } from "react"
@@ -50,7 +50,7 @@ const SearchItems = () => {
                 searchHandler={searchHandler}
                 type={"text"}
             />
-            {loading ? (<SearchLoading />) :
+            {loading ? (<CircleLoading />) :
                 data ? (<Items data={data} />) :
                     (null)}
 
