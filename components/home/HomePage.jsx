@@ -18,7 +18,8 @@ const HomePage = async ({ data }) => {
         <>
             {
                 sliderData.length ? (
-                    <Slider>
+                    <>
+                     <Slider id={'desktop-slider'}>
                         {
                             sliderData.map((item) => (
                                 <SwiperSlide key={item.id} className="relative rounded-xl" >
@@ -27,6 +28,7 @@ const HomePage = async ({ data }) => {
                                         id={item.id}
                                         backdrop={item.backdrop_path}
                                         average={item.vote_average}
+                                        overview={item.overview}
                                         title={item.title || item.name}
                                     />
                                 </SwiperSlide>
@@ -34,6 +36,24 @@ const HomePage = async ({ data }) => {
                             ))
                         }
                     </Slider>
+                    <Slider id={'mobile-slider'}>
+                        {
+                            sliderData.map((item) => (
+                                <SwiperSlide key={item.id}
+                                 className="relative rounded-xl" >
+                                    <SlideItem
+                                        key={item.id}
+                                        id={item.id}
+                                        backdrop={item.poster_path}
+                                        average={item.vote_average}
+                                        overview={item.overview}
+                                        title={item.title || item.name}
+                                    />
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Slider>
+                    </>
                 ) :
                     (<CircleLoading />)
             }

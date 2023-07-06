@@ -7,10 +7,11 @@ import "swiper/css/navigation";
 // import required modules
 import { Parallax, Pagination, Navigation, Autoplay } from "swiper";
 
-const Slider = ({ children }) => {
+const Slider = ({id, children }) => {
 
     return (
         <Swiper
+        id={id}
             spaceBetween={30}
             style={{
                 "--swiper-navigation-color": "#fff",

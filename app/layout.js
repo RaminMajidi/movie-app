@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${robotoCondensed.className}`}>
-        <main className='mt-16 mx-auto px-2 max-w-7xl'>
+        <main className='mt-16 mx-auto px-2 max-w-[1400px]'>
         <Header/>
         {children}
         </main>

@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Header = () => {
     return (
-        <header className="max-w-7xl bg-[var(--c-bg)] text-[var(--c-gray)]
+        <header className="max-w-[1400px] bg-[var(--c-bg)] text-[var(--c-gray)]
          border-b-2 font-bold  fixed w-full h-[3rem] top-0
           z-50 px-2 py-4 flex justify-center 
           sm:justify-between sm:px-4 items-center">
