@@ -26,7 +26,7 @@ const AiringToday = async () => {
     const data = await getData();
 
     return (
-        <SectionSlider key={'airing_today'} title={'Tv / Airing Today'}>
+        <SectionSlider key={'airing_today'} category={'tv'} title={'Tv / Airing Today'}>
             <MoviesSlider data={data} subUrl={'tv'} />
         </SectionSlider>
     )

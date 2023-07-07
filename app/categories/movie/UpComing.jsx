@@ -26,7 +26,7 @@ const UpComing = async () => {
     const data = await getData();
 
     return (
-        <SectionSlider key={'upcoming'} title={'Move / Upcoming'}>
+        <SectionSlider category={'movie'} key={'upcoming'} title={'Move / Upcoming'}>
             <MoviesSlider data={data} subUrl={'movie'} />
         </SectionSlider>
     )

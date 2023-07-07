@@ -1,6 +1,7 @@
 import CircleLoading from "../loading/CircleLoading"
 import { Suspense } from "react"
-const SectionSlider = ({ key, title, children }) => {
+import Link from "next/link"
+const SectionSlider = ({ key, category, title, children }) => {
 
     return (
         <section id={key} className="col-span-12 md:col-span-6">
@@ -10,10 +11,11 @@ const SectionSlider = ({ key, title, children }) => {
                      uppercase tracking-widest">
                         {title}
                     </h3>
-                    <button className="bg-[var(--c-lblue)] px-3 py-0
+                    <Link href={`/categories/${category}/all/1`}
+                        className="bg-[var(--c-lblue)] px-3 py-0
                     rounded-md font-bold tracking-wider">
                         See All
-                    </button>
+                    </Link>
                 </div>
                 <article className="rounded-xl mb-10">
                     {children}

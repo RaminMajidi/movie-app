@@ -1,7 +1,7 @@
 import AiringToday from "./AiringToday";
 import TopRated from "./TopRated";
 
-const Tv = () =>{
+const TvPage = () =>{
 
     return(
         <section className="grid grid-cols-12 gap-4 px-3 py-4">
@@ -11,4 +11,4 @@ const Tv = () =>{
     )
 }
 
-export default Tv
+export default TvPage
