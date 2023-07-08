@@ -44,7 +44,7 @@ const Movie = async ({ params }) => {
                         <div className="border text-[var(--c-lgray)] bg-[var(--c-black)] rounded-xl p-4
                  col-start-2 col-span-10 sm:col-span-8 md:col-span-9 lg:col-span-8
                  overflow-hidden">
-                            <TitleDisc title={'Overview'} desc={data.overview} style={'text-justify'} />
+                            <TitleDisc title={'Overview'} desc={data.overview || "No Description !"} style={'text-justify'} />
                             <TitleDisc title={'Title'} desc={data.title} />
                             <TitleDisc title={'Tagline'} desc={data.tagline} />
                             <div className="flex justify-start flex-wrap">

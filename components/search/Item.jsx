@@ -19,7 +19,7 @@ const Item = ({ itemId, title, imgUrl, category, desc }) => {
                 <TitleDisc title={'Title'} desc={title}
                     style="line-clamp-1" />
                 <TitleDisc title={'Ctegory'} desc={category} />
-                <TitleDisc title={'Overview'} desc={desc}
+                <TitleDisc title={'Overview'} desc={desc || "No Description !"}
                     style="line-clamp-3 text-justify" />
                 <BtnReade
                     title={title}

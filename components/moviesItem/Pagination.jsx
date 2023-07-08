@@ -20,7 +20,7 @@ const Pagination = ({ activePage, totalPages, category }) => {
                 href={`/categories/${category}/all/1`}>
                 {1}
             </Link>
-            <span className={`${activePage > 2 ? 'inline-block' : 'hidden'} bg-[var(--c-lblue)] font-bold 
+            <span className={`${activePage <= 4 ? 'hidden' : 'inline-block'} bg-[var(--c-lblue)] font-bold 
             rounded-sm w-max mx-1 text-center cursor-none
             py-1 px-2 text-lg`}>
                 ...
