@@ -5,12 +5,12 @@ const Pagination = ({ activePage, totalPages, category }) => {
     for (let index = 2; index <= totalPages-1; index++) {
         pages.push(index)
     }
-    console.log(pages)
 
     return (
         <article className="flex flex-wrap items-center
          justify-center col-span-12 px-4 py-2">
             <Link
+            key={'page_1'}
                 className={
                     `${activePage === 1 ?
                         'bg-[var(--c-orange)] text-[var(--c-black)]' :
@@ -20,9 +20,9 @@ const Pagination = ({ activePage, totalPages, category }) => {
                 href={`/categories/${category}/all/1`}>
                 {1}
             </Link>
-            <span className="bg-[var(--c-lblue)] font-bold 
+            <span className={`${activePage > 2 ? 'inline-block' : 'hidden'} bg-[var(--c-lblue)] font-bold 
             rounded-sm w-max mx-1 text-center cursor-none
-            py-1 px-2 text-lg">
+            py-1 px-2 text-lg`}>
                 ...
             </span>
             {
@@ -30,6 +30,7 @@ const Pagination = ({ activePage, totalPages, category }) => {
                     if (item === activePage || item <= activePage + 2 && item >= activePage -2) {
                         return (
                             <Link
+                            key={'page_'+item}
                                 className={
                                     `${activePage === item ?
                                         'bg-[var(--c-orange)] text-[var(--c-black)]' :
@@ -43,12 +44,13 @@ const Pagination = ({ activePage, totalPages, category }) => {
                     }
                 })
             }
-            <span className="bg-[var(--c-lblue)] font-bold 
+            <span className={`${activePage >= totalPages-3 ? 'hidden' : 'inline-block'} bg-[var(--c-lblue)] font-bold 
             rounded-sm w-max mx-1 text-center cursor-none
-            py-1 px-2 text-lg">
+            py-1 px-2 text-lg`}>
                 ...
             </span>
             <Link
+            key={'page_'+totalPages}
                 className={`${activePage === totalPages ?
                     'bg-[var(--c-orange)] text-[var(--c-black)]' :
                     'bg-[var(--c-lblue)]'} 

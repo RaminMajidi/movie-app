@@ -8,10 +8,7 @@ const AllSection = ({ data, category }) => {
     const [page, setPage] = useState(0)
     const [totalPages, setTotalPages] = useState(0)
     const [results, setResults] = useState([])
-
-
     useEffect(() => {
-        console.log(data)
         setPage(+data?.page)
         setTotalPages(+data?.total_pages > 200 ? 200 : +data?.total_pages)
         setResults(data?.results)
@@ -23,7 +20,7 @@ const AllSection = ({ data, category }) => {
                     (
                         <>
                             {
-                                results.map((item, index) => {
+                                results.map((item) => {
                                     if (item.poster_path) {
                                         return (
                                             <Item
