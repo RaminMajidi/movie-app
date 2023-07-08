@@ -23,7 +23,6 @@ const SearchItems = () => {
         });
         if (res.status === 200) {
             let data = await res.json()
-            console.log(data)
             setData(data)
             setLoading(false)
         } else

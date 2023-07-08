@@ -2,8 +2,9 @@ import NotFound from "@/app/not-found"
 import AllSection from "@/components/moviesItem/AllSection"
 
 
-const AllMovie = async ({ params }) => {
-    const page = +params.page
+const AllMovie = async ({params}) => {
+
+    const page = +params.num
     if(page < 1 || page > 200 ){
         return NotFound();
     }
