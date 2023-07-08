@@ -24,7 +24,7 @@ const Item = ({ itemId, title, imgUrl, category, desc }) => {
                 <BtnReade
                     title={title}
                     classStyle={'max-w-max'}
-                    url={`categories/${category}/${itemId}`} />
+                    url={`/categories/${category}/${itemId}`} />
             </div>
         </div>
     )
