@@ -8,9 +8,9 @@ const ImgLoader = ({ src, style, alt = '', width = 500, height = 500 }) => {
     }
     const [imgLoading, setImgLoading] = useState(true)
 
-    useEffect(()=>{
+    useEffect(() => {
         setSrcUrl(src)
-    },[src])
+    }, [src])
 
     return (
         <div key={alt + "_img"} className={`w-full h-full relative transition-all  ${style}`}>
@@ -23,7 +23,9 @@ const ImgLoader = ({ src, style, alt = '', width = 500, height = 500 }) => {
                 quality={50}
                 className={`w-full h-full opacity-0 ${style} `}
                 loader={imageLoader}
-                onError={()=>{}}
+                placeholder="blur"
+                blurDataURL={'/img/no-image.png'}
+                onError={() => { }}
                 onLoadingComplete={(image) => {
                     setImgLoading(false)
                     image.classList.remove("opacity-0")
