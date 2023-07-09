@@ -8,22 +8,22 @@ const Pagination = ({ activePage, totalPages, category }) => {
 
     return (
         <article className="flex flex-wrap items-center
-         justify-center col-span-12 px-4 py-2">
+         justify-center col-span-12 px-4 py-2 ">
             <Link
                 key={'page_1'}
                 className={
                     `${activePage === 1 ?
                         'bg-[var(--c-orange)] text-[var(--c-black)]' :
                         'bg-[var(--c-lblue)]'} 
-                         py-1 px-2 text-lg
-                 font-bold rounded-sm w-max mx-1`}
+                         p-1 text-lg text-center
+                 font-bold rounded-sm w-[35px] m-1`}
                 href={`/all/${category}/1`}>
                 {1}
             </Link>
             <span className={`${activePage <= 4 ? 'hidden' : 'inline-block'}
              bg-[var(--c-lblue)] font-bold 
-            rounded-sm w-max mx-1 text-center cursor-none
-            py-1 px-2 text-lg`}>
+            rounded-sm w-[25px] m-1 text-center cursor-none
+            p-1 text-lg`}>
                 ...
             </span>
             {
@@ -36,8 +36,8 @@ const Pagination = ({ activePage, totalPages, category }) => {
                                     `${activePage === item ?
                                         'bg-[var(--c-orange)] text-[var(--c-black)]' :
                                         'bg-[var(--c-lblue)]'} 
-                                     py-1 px-2 text-lg
-                             font-bold rounded-sm w-max mx-1`}
+                                        p-1 text-lg text-center
+                             font-bold rounded-sm w-[35px] m-1`}
                                 href={`/all/${category}/${item}`}>
                                 {item}
                             </Link>
@@ -47,8 +47,8 @@ const Pagination = ({ activePage, totalPages, category }) => {
             }
             <span className={`${activePage >= totalPages - 3 ? 'hidden' : 'inline-block'}
              bg-[var(--c-lblue)] font-bold 
-            rounded-sm w-max mx-1 text-center cursor-none
-            py-1 px-2 text-lg`}>
+            rounded-sm w-max m-1 text-center cursor-none
+            p-1 text-lg `}>
                 ...
             </span>
             <Link
@@ -56,8 +56,8 @@ const Pagination = ({ activePage, totalPages, category }) => {
                 className={`${activePage === totalPages ?
                     'bg-[var(--c-orange)] text-[var(--c-black)]' :
                     'bg-[var(--c-lblue)]'} 
-                     py-1 px-2 text-lg
-             font-bold rounded-sm w-max mx-1`}
+                     p-1 text-lg text-center
+             font-bold rounded-sm w-[35px] m-1`}
                 href={`/all/${category}/${totalPages}`}>
                 {totalPages}
             </Link>
