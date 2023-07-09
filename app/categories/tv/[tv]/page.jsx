@@ -6,7 +6,9 @@ import { Suspense } from "react";
 import Loading from "@/app/Loading";
 import NotFound from "@/app/not-found";
 
-
+export const metadata = {
+    title: 'Movie-App | Tv',
+}
 
 const Movie = async ({ params }) => {
     const { tv } = params

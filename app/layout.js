@@ -10,8 +10,8 @@ const robotoCondensed = Roboto_Condensed({
   })
 
 export const metadata = {
-  title: 'Movie App',
-  description: 'Made with Next-js by Ramin Majidi',
+  title: 'Movie-App',
+  description: 'Made with Next-js 13.4.6 App  by Ramin Majidi',
 }
 
 export default function RootLayout({ children }) {

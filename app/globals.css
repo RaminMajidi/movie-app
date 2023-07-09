@@ -27,69 +27,57 @@ body {
 /* Start Style For Loading */
 .Loading-container {
   position: absolute;
-  top: 0;
+  top:0;
   left: 0;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #2e2e2e;
-  z-index: 1000;
+  min-height: 100vh;
+  background: #000;
+  z-index: 100;
 }
-
-.ball {
+.loader {
   position: relative;
-  bottom: 50px;
-  left: calc(100% - 20px);
-  width: 50px;
-  height: 50px;
-  background: #fff;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  animation: ball-move8234 3s ease-in-out 1s infinite alternate;
+  background: linear-gradient(45deg, transparent, transparent 30%, #e5f403);
+  animation: loader 2s linear infinite;
 }
-
-.ball::after {
-  position: absolute;
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg); 
+  }
+}
+.loader:before {
   content: '';
-  top: 25px;
-  right: 5px;
-  width: 5px;
-  height: 5px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  bottom: 6px;
+  right: 6px;
   background: #000;
   border-radius: 50%;
+  z-index: 1000;
 }
-
-.bar {
-  width: 200px;
-  height: 12.5px;
-  background: #FFDAAF;
-  border-radius: 30px;
-  transform: rotate(-15deg);
-  animation: up-down6123 3s ease-in-out 1s infinite alternate;
-}
-
-@keyframes up-down6123 {
-  from {
-    transform: rotate(-15deg);
-  }
-
-  to {
-    transform: rotate(15deg);
-  }
-}
-
-@keyframes ball-move8234 {
-  from {
-    left: calc(100% - 40px);
-    transform: rotate(360deg);
-  }
-
-  to {
-    left: calc(0% - 20px);
-    transform: rotate(0deg);
-  }
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(45deg, transparent, transparent 30%, #e5f403);
+  border-radius: 50%;
+  z-index: 1000;
+  z-index: 1;
+  filter: blur(30px);
 }
 
 /* End Style For Loading */

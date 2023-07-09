@@ -1,6 +1,10 @@
 import AiringToday from "./AiringToday";
 import TopRated from "./TopRated";
 
+export const metadata = {
+    title: 'Movie-App | Tv',
+}
+
 
 const TvPage = async () =>{
 

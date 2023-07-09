@@ -1,6 +1,13 @@
 import { Suspense } from "react";
 import Loading from "./Loading";
 import HomePage from "@/components/home/HomePage";
+import NotFound from "./not-found";
+
+
+
+export const metadata = {
+  title: 'Movie-App | Home',
+}
 
 export default async function Home() {
   const res = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', {
@@ -11,6 +18,9 @@ export default async function Home() {
       Authorization: `Bearer ${process.env.ACCIC_TOKEN}`
     }
   });
+  if(res.status != 200){
+    return  NotFound();
+  }
   const data = await res.json()
 
   return (

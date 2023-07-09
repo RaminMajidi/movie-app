@@ -67,7 +67,7 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                                         <AverageStars
                                                             average={item.vote_average}
                                                             col={true} />
-                                                        <Link as={'image'}
+                                                        <Link 
                                                             href={`/categories/${subUrl}/${item.id}`}
                                                             title={item.title}
                                                             className="bg-[var(--c-lblue)] px-2 

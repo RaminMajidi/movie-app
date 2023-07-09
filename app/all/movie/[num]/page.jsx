@@ -2,6 +2,10 @@ import NotFound from "@/app/not-found"
 import AllSection from "@/components/moviesItem/AllSection"
 
 
+export const metadata = {
+  title: 'Movie-App | AllMovie',
+}
+
 const AllMovie = async ({params}) => {
 
     const page = +params.num

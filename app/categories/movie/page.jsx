@@ -1,6 +1,10 @@
 import UpComing from "./UpComing";
 import TopRated from "./TopRated";
 
+export const metadata = {
+    title: 'Movie-App | Movie',
+}
+
 const MoviePage = async () => {
 
     return (

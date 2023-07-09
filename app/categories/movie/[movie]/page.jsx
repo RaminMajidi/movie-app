@@ -7,6 +7,10 @@ import Loading from "@/app/Loading";
 import NotFound from "@/app/not-found";
 
 
+export const metadata = {
+    title: 'Movie-App | Movie',
+}
+
 const Movie = async ({ params }) => {
     const { movie } = params
     const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}`, {
