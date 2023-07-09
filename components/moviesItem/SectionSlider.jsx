@@ -11,7 +11,7 @@ const SectionSlider = ({ key, category, title, children }) => {
                      uppercase tracking-widest">
                         {title}
                     </h3>
-                    <Link href={`/categories/${category}/all/1`}
+                    <Link href={`/all/${category}/1`}
                         className="bg-[var(--c-lblue)] px-3 py-0
                     rounded-md font-bold tracking-wider">
                         See All

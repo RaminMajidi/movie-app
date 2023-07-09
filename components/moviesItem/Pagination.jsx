@@ -17,7 +17,7 @@ const Pagination = ({ activePage, totalPages, category }) => {
                         'bg-[var(--c-lblue)]'} 
                          py-1 px-2 text-lg
                  font-bold rounded-sm w-max mx-1`}
-                href={`/categories/${category}/all/1`}>
+                href={`/all/${category}/1`}>
                 {1}
             </Link>
             <span className={`${activePage <= 4 ? 'hidden' : 'inline-block'}
@@ -38,7 +38,7 @@ const Pagination = ({ activePage, totalPages, category }) => {
                                         'bg-[var(--c-lblue)]'} 
                                      py-1 px-2 text-lg
                              font-bold rounded-sm w-max mx-1`}
-                                href={`/categories/${category}/all/${item}`}>
+                                href={`/all/${category}/${item}`}>
                                 {item}
                             </Link>
                         )
@@ -58,7 +58,7 @@ const Pagination = ({ activePage, totalPages, category }) => {
                     'bg-[var(--c-lblue)]'} 
                      py-1 px-2 text-lg
              font-bold rounded-sm w-max mx-1`}
-                href={`/categories/${category}/all/${totalPages}`}>
+                href={`/all/${category}/${totalPages}`}>
                 {totalPages}
             </Link>
 

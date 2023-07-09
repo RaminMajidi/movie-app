@@ -43,8 +43,10 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                 className="movieSwiper"
                             >
                                 {
-                                    slides.map((item, index) => (
-                                        <SwiperSlide key={item.id}>
+                                    slides.map((item) => {
+                                        if(item.poster_path){
+                                            return(
+                                                <SwiperSlide key={item.id}>
                                             {
                                                 <div className="relative w-full h-full group">
                                                     <ImgLoader
@@ -77,7 +79,9 @@ const MoviesSlider = async ({ data, subUrl }) => {
                                                 </div>
                                             }
                                         </SwiperSlide>
-                                    ))
+                                            )
+                                        }
+                                    })
                                 }
                             </Swiper >
                         </div>
