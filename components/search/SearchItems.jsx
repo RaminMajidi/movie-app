@@ -4,13 +4,13 @@ import Input from "./Input"
 import Items from "./Items"
 import { useEffect, useState } from "react"
 import { Alert } from "../alert/Alert"
+import Image from "next/image"
 
 
 const SearchItems = () => {
     const [searchParam, setSearchParam] = useState('')
     const [data, setData] = useState()
     const [loading, setLoading] = useState(false);
-
 
     async function searchHandler() {
         setLoading(true)
@@ -34,7 +34,7 @@ const SearchItems = () => {
                 Alert('Error', "A problem occurred. Please try again at another time", 'error')
                 setLoading(false)
             }
-           
+
     }
 
 
@@ -51,7 +51,16 @@ const SearchItems = () => {
             />
             {loading ? (<CircleLoading />) :
                 data ? (<Items data={data} />) :
-                    (null)}
+                    (
+                        <Image
+                            className="w-[60vw] md:w-[40vw] max-w-[1000px]
+                             mt-4 mx-auto"
+                            src={"/img/Home-cinema.svg"}
+                            width={800}
+                            height={800}
+                            alt="Searc Image"
+                        />
+                    )}
 
         </section>
     )

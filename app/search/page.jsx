@@ -8,7 +8,7 @@ const SearchPage = () => {
 
     return (
         <section className="px-4">
-            <SearchItems data={null} />
+            <SearchItems />
         </section>
 
     )
