@@ -48,7 +48,7 @@ const Header = () => {
                 </div>
 
                 <div className="relative group">
-                    <Link href={'/categories/movie'}
+                    <Link href={'/all/movie/1'}
                         className={`mx-2 hover:text-[var(--c-orange)]
                         transition-all duration-700
                         ${active === "movie" ? 'text-[var(--c-orange)]' : ''}`}>
@@ -57,7 +57,7 @@ const Header = () => {
                 </div>
 
                 <div className="relative group">
-                    <Link href={'/categories/tv'}
+                    <Link href={'/all/tv/1'}
                         className={`mx-2 hover:text-[var(--c-orange)]
                         transition-all duration-700
                         ${active === "tv" ? 'text-[var(--c-orange)]' : ''}`}>
