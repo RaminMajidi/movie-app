@@ -27,7 +27,7 @@ const TopRated = async () => {
 
     return (
 
-        <SectionSlider key={'top_rated'} category={'movie'} title={'Move / Top Rated'}>
+        <SectionSlider key={'top_rated'} category={'movie'} title={'Top Rated'}>
             <MoviesSlider data={data} subUrl={'movie'} />
         </SectionSlider>
 

@@ -6,7 +6,7 @@ import Loading from "@/app/Loading";
 import { SwiperSlide } from "swiper/react";
 
 
-const HomePage = async ({ data }) => {
+const HomeBaner = async ({ data }) => {
     const [sliderData, setSliderData] = useState([])
 
     useEffect(() => {
@@ -62,4 +62,4 @@ const HomePage = async ({ data }) => {
     )
 }
 
-export default HomePage
+export default HomeBaner

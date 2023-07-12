@@ -22,7 +22,7 @@ const MoviesSlider = async ({ data, subUrl }) => {
             {
                 slides ? (
                     <>
-                        <div className="border rounded-xl mb-10">
+                        <div className=" rounded-xl mb-10">
                             <Swiper
                                 effect={"coverflow"}
                                 grabCursor={true}

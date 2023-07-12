@@ -2,11 +2,11 @@ import SectionSlider from "@/components/moviesItem/SectionSlider";
 import MoviesSlider from "@/components/moviesItem/MoviesSlider";
 
 
-const AiringToday = async () => {
+const UpComing = async () => {
 
     const getData = async () => {
         let result;
-        const res = await fetch(`https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1`, {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`, {
             next: { revalidate: 60 * 60 * 24 },
             method: 'GET',
             headers: {
@@ -26,10 +26,13 @@ const AiringToday = async () => {
     const data = await getData();
 
     return (
-        <SectionSlider key={'airing_today'} category={'tv'} title={'Tv / Airing Today'}>
-            <MoviesSlider data={data} subUrl={'tv'} />
+        <SectionSlider
+            category={'movie'}
+            key={'upcoming'}
+            title={'Upcoming'}>
+            <MoviesSlider data={data} subUrl={'movie'} />
         </SectionSlider>
     )
 }
 
-export default AiringToday
+export default UpComing

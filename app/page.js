@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import Loading from "./Loading";
-import HomePage from "@/components/home/HomePage";
+import HomeBaner from "@/components/home/HomeBaner";
 import NotFound from "./not-found";
-
-
+import HomeMovies from "@/components/home/HomeMovies";
+import HomeTvs from "@/components/home/HomeTvs";
 
 export const metadata = {
   title: 'Movie-App | Home',
@@ -18,15 +18,18 @@ export default async function Home() {
       Authorization: `Bearer ${process.env.ACCIC_TOKEN}`
     }
   });
-  if(res.status != 200){
-    return  NotFound();
+  if (res.status != 200) {
+    return NotFound();
   }
+
   const data = await res.json()
 
   return (
     <>
-      <Suspense fallback={<Loading/>}>
-        <HomePage data={data?.results} />
+      <Suspense fallback={<Loading />}>
+        <HomeBaner data={data?.results} />
+        <HomeMovies />
+        <HomeTvs />
       </Suspense>
     </>
   )

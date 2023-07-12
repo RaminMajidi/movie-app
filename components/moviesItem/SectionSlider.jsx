@@ -6,7 +6,7 @@ const SectionSlider = ({ key, category, title, children }) => {
     return (
         <section id={key} className="col-span-12 md:col-span-6">
             <Suspense fallback={<CircleLoading />}>
-                <div className="flex justify-between items-center px-5">
+                <div className="flex justify-between items-center px-5 border-b">
                     <h3 className="p-2 text-base md:text-lg 
                      uppercase tracking-widest">
                         {title}
